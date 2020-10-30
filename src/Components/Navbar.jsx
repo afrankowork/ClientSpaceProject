@@ -33,7 +33,7 @@ const NavbarComponent = (props) => {
                 <Link to="/register">Register</Link>
               </NavItem>
               <NavItem>
-                <Link to="/login">Login</Link>
+                <Link to="/">Login</Link>
               </NavItem>
             </>
           )}
