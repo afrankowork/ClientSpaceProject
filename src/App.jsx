@@ -1,0 +1,58 @@
+import logo from "./logo.svg";
+import "./App.css";
+import { useEffect, useState } from "react";
+import { Navbar, NavbarBrand, Nav, NavItem, Button } from "reactstrap";
+import { Link, Route, Switch, BrowserRouter as Router } from "react-router-dom";
+
+import NavbarComponent from "./Components/Navbar";
+import LoginComponent from "./Components/Auth/Login";
+import RegisterComponent from "./Components/Auth/Register";
+
+function App() {
+  const [token, setToken] = useState(null);
+
+  const getSessionToken = () => {
+    if (
+      localStorage.getItem("token") &&
+      localStorage.getItem("token") != undefined
+    ) {
+      setToken(localStorage.getItem("token"));
+    } else {
+      console.log("no session token");
+    }
+  };
+
+  const updateSessionToken = (newToken) => {
+    localStorage.setItem("token", newToken);
+    setToken(newToken);
+  };
+
+  const deleteSessionToken = () => {
+    localStorage.clear();
+    setToken("null");
+    console.log("token deleted");
+  };
+
+  useEffect(getSessionToken, []);
+
+  return (
+    <div className="App">
+      <Router>
+        <NavbarComponent
+          token={token}
+          deleteSessionToken={deleteSessionToken}
+        />
+        <Switch>
+          <Route exact path="/login">
+            <LoginComponent />
+          </Route>
+          <Route exact path="/register">
+            <RegisterComponent />
+          </Route>
+        </Switch>
+      </Router>
+    </div>
+  );
+}
+
+export default App;
