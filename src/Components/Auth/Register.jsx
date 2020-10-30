@@ -30,6 +30,7 @@ const RegisterComponent = (props) => {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
+            autoComplete="off"
           />
         </FormGroup>
         <FormGroup>
@@ -55,7 +56,7 @@ const RegisterComponent = (props) => {
           />
         </FormGroup>
 
-        <Button type="submit">Register</Button>
+        <button type="submit">Register</button>
       </Form>
     </>
   );

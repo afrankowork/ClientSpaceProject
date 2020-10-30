@@ -25,6 +25,7 @@ const LoginComponent = (props) => {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
+            autoComplete="off"
           />
         </FormGroup>
         <FormGroup>
@@ -39,7 +40,7 @@ const LoginComponent = (props) => {
           />
         </FormGroup>
 
-        <Button type="submit">Login</Button>
+        <button type="submit">Login</button>
       </Form>
     </>
   );

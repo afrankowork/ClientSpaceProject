@@ -10,7 +10,7 @@
 
 Form {
   background-color: rgba(0, 0, 0, 0);
-  /* padding: 1em 1em; */
+  padding: 0 1em;
   margin: 6em auto;
   max-width: 480px;
   color: white;
@@ -33,6 +33,24 @@ input {
   color: white;
   padding: 0 0.75em;
   border-radius: 8px;
+}
+
+Form button {
+  background-color: rgba(0, 0, 0, 0);
+  border: 2px solid white;
+  outline: none;
+  color: white;
+  font-size: larger;
+  border-radius: 8px;
+  padding: 0 15px 5px;
+  position: relative;
+  margin: 10px 0;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+Form button:focus {
+  outline: none;
 }
 
 /* Input {
