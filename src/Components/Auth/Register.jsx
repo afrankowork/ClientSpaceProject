@@ -9,7 +9,31 @@ const RegisterComponent = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if (password === passwordConfirm) {
+      console.log("fetching...");
+      fetch("https://ajaaspaceserver.herokuapp.com/test/register", {
+        method: "POST",
+        body: JSON.stringify({
+          user: {
+            username: username,
+            password: password,
+          },
+        }),
+        headers: new Headers({
+          "Content-Type": "application/json",
+        }),
+      })
+        .then((res) => res.json())
+        .then((json) => {
+          if (json.sessionToken === undefined) {
+            alert("Wrong password!");
+          } else {
+            props.updateSessionToken(json.sessionToken);
+            window.location.href = "http://localhost:3000"; //! WOULD LIKE TO CHANGE
+          }
+        });
+
       props.updateSessionToken("HeyMan");
     } else {
       alert("Passwords must match!");
@@ -55,8 +79,9 @@ const RegisterComponent = (props) => {
             required
           />
         </FormGroup>
-
+        {/* <Link to="/"> */}
         <button type="submit">Register</button>
+        {/* </Link> */}
       </Form>
     </>
   );

@@ -8,7 +8,21 @@ const LoginComponent = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.updateSessionToken("HeyHeyMan");
+
+    fetch("https://ajaaspaceserver.herokuapp.com/test/login", {
+      method: "POST",
+      body: JSON.stringify({
+        user: {
+          username: username,
+          password: password,
+        },
+      }),
+      headers: new Headers({
+        "Content-Type": "application/json",
+      }),
+    })
+      .then((res) => res.json())
+      .then((json) => props.updateSessionToken(json.sessionToken));
   };
 
   return (
