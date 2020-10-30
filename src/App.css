@@ -1,0 +1,40 @@
+.form-background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  z-index: -1;
+  background-image: url("https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2027&q=80");
+  background-size: cover;
+}
+
+Form {
+  background-color: rgba(0, 0, 0, 0);
+  /* padding: 1em 1em; */
+  margin: 6em auto;
+  max-width: 480px;
+  color: white;
+  /* filter: drop-shadow(0px 10px 6px rgba(0, 0, 0, 0.5)); */
+  /* -webkit-box-shadow: 0px 10px 25px 6px rgba(0, 0, 0, 0.54); */
+  /* box-shadow: 0px 10px 25px 6px rgba(0, 0, 0, 0.54); */
+}
+
+Form h2 {
+  text-align: center;
+}
+
+input {
+  width: 100%;
+  height: 40px;
+  outline: none;
+  border: 2px solid white;
+  background-color: rgba(0, 0, 0, 0);
+  /* background-image: url("https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2027&q=80"); */
+  color: white;
+  padding: 0 0.75em;
+  border-radius: 8px;
+}
+
+/* Input {
+  border: 5px solid red;
+} */
