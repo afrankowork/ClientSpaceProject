@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { useEffect, useState } from "react";
 import { Navbar, NavbarBrand, Nav, NavItem, Button } from "reactstrap";
@@ -7,6 +6,7 @@ import { Link, Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import NavbarComponent from "./Components/Navbar";
 import LoginComponent from "./Components/Auth/Login";
 import RegisterComponent from "./Components/Auth/Register";
+import AstroComponent from "./Components/Astro/Astro";
 
 function App() {
   const [token, setToken] = useState(null);
@@ -44,10 +44,17 @@ function App() {
         />
         <Switch>
           <Route exact path="/login">
-            <LoginComponent />
+            <LoginComponent updateSessionToken={updateSessionToken} />
           </Route>
           <Route exact path="/register">
-            <RegisterComponent />
+            <RegisterComponent updateSessionToken={updateSessionToken} />
+          </Route>
+          <Route exact path="/">
+            {token ? (
+              <AstroComponent />
+            ) : (
+              <LoginComponent updateSessionToken={updateSessionToken} />
+            )}
           </Route>
         </Switch>
       </Router>

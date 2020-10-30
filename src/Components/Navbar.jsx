@@ -22,7 +22,9 @@ const NavbarComponent = (props) => {
           {props.token ? (
             <>
               <NavItem>
-                <Button onClick={props.deleteSessionToken}>LOGOUT</Button>
+                <Button onClick={(e) => props.deleteSessionToken()}>
+                  LOGOUT
+                </Button>
               </NavItem>
             </>
           ) : (
