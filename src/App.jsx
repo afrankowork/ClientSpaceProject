@@ -10,6 +10,11 @@ import AstroComponent from "./Components/Astro/Astro";
 
 function App() {
   const [token, setToken] = useState(null);
+  const [isLogin, setIsLogin] = useState(true);
+
+  const toggleLogin = () => {
+    setIsLogin(!isLogin);
+  };
 
   const getSessionToken = () => {
     if (
@@ -29,7 +34,7 @@ function App() {
 
   const deleteSessionToken = () => {
     localStorage.clear();
-    setToken("null");
+    setToken(null);
     console.log("token deleted");
   };
 
@@ -37,29 +42,53 @@ function App() {
 
   return (
     <div className="App">
-      <Router>
-        <NavbarComponent
-          token={token}
-          deleteSessionToken={deleteSessionToken}
-        />
-        <Switch>
-          <Route exact path="/login">
-            <LoginComponent updateSessionToken={updateSessionToken} />
-          </Route>
-          <Route exact path="/register">
-            <RegisterComponent updateSessionToken={updateSessionToken} />
-          </Route>
-          <Route exact path="/">
-            {token ? (
-              <AstroComponent />
-            ) : (
-              <LoginComponent updateSessionToken={updateSessionToken} />
-            )}
-          </Route>
-        </Switch>
-      </Router>
+      <NavbarComponent
+        isLogin={isLogin}
+        toggleLogin={toggleLogin}
+        token={token}
+        deleteSessionToken={deleteSessionToken}
+      />
+      {token ? (
+        <AstroComponent />
+      ) : isLogin ? (
+        <LoginComponent updateSessionToken={updateSessionToken} />
+      ) : (
+        <RegisterComponent updateSessionToken={updateSessionToken} />
+      )}
     </div>
   );
 }
 
 export default App;
+
+{
+  /* <Router>
+<NavbarComponent
+  isLogin={isLogin}
+  toggleLogin={toggleLogin}
+  token={token}
+  deleteSessionToken={deleteSessionToken}
+/>
+{isLogin ? (
+  <LoginComponent updateSessionToken={updateSessionToken} />
+) : (
+  <RegisterComponent updateSessionToken={updateSessionToken} />
+)}
+
+<Switch>
+  <Route exact path="/login">
+    <LoginComponent updateSessionToken={updateSessionToken} />
+  </Route>
+  <Route exact path="/register">
+    <RegisterComponent updateSessionToken={updateSessionToken} />
+  </Route>
+  <Route exact path="/">
+    {token ? (
+      <AstroComponent />
+    ) : (
+      <LoginComponent updateSessionToken={updateSessionToken} />
+    )}
+  </Route>
+</Switch> 
+</Router>*/
+}
