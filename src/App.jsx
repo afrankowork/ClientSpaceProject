@@ -11,6 +11,11 @@ import AstroComponent from "./Components/Astro/Astro";
 function App() {
   const [token, setToken] = useState(null);
   const [isLogin, setIsLogin] = useState(true);
+  const [view, setView] = useState("home");
+
+  const changeView = (newView) => {
+    setView(newView);
+  };
 
   const toggleLogin = () => {
     setIsLogin(!isLogin);
@@ -49,7 +54,13 @@ function App() {
         deleteSessionToken={deleteSessionToken}
       />
       {token ? (
-        <AstroComponent />
+        view === "home" ? (
+          <AstroComponent changeView={changeView} />
+        ) : view === "nasa-photo" ? (
+          <NasaPhoto changeView={changeView} />
+        ) : (
+          <h1>INVALID VIEW</h1>
+        )
       ) : isLogin ? (
         <LoginComponent updateSessionToken={updateSessionToken} />
       ) : (
