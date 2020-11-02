@@ -26,6 +26,7 @@ const LoginComponent = (props) => {
         if (json.sessionToken === undefined) {
           alert("Wrong password!");
         } else {
+          console.log(json.sessionToken);
           props.updateSessionToken(json.sessionToken);
         }
       });
