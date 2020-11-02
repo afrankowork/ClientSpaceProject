@@ -7,6 +7,7 @@ import NavbarComponent from "./Components/Navbar";
 import LoginComponent from "./Components/Auth/Login";
 import RegisterComponent from "./Components/Auth/Register";
 import AstroComponent from "./Components/Astro/Astro";
+import NasaPhoto from "./Components/Astro/NasaPhoto";
 
 function App() {
   const [token, setToken] = useState(null);
