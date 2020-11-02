@@ -7,6 +7,9 @@ import NavbarComponent from "./Components/Navbar";
 import LoginComponent from "./Components/Auth/Login";
 import RegisterComponent from "./Components/Auth/Register";
 import AstroComponent from "./Components/Astro/Astro";
+import NasaPhotoComponent from "./Components/Astro/NasaPhoto";
+import NasaPhoto from "./Components/Astro/NasaPhoto";
+import Astro from "./Components/Astro/Astro";
 
 function App() {
   const [token, setToken] = useState(null);
@@ -57,6 +60,8 @@ function App() {
             )}
           </Route>
         </Switch>
+        <Route component={Astro} path="/" exact />
+        <Route component={NasaPhoto} path='/nasaphoto' /> 
       </Router>
     </div>
   );
