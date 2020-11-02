@@ -1,7 +1,5 @@
-import React from 'react';
+import React from "react";
 
-return DeleteFeature(
-
-);
+const DeleteFeature = () => {};
 
 export default DeleteFeature;
