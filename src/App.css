@@ -56,3 +56,17 @@ Form button:focus {
 /* Input {
   border: 5px solid red;
 } */
+
+.nav-button {
+  color: white;
+  cursor: pointer;
+}
+
+.nav-button:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.reg-error {
+  color: red;
+}
