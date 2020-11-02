@@ -7,11 +7,8 @@ import NavbarComponent from "./Components/Navbar";
 import LoginComponent from "./Components/Auth/Login";
 import RegisterComponent from "./Components/Auth/Register";
 import AstroComponent from "./Components/Astro/Astro";
-
-import NasaPhotoComponent from "./Components/Astro/NasaPhoto";
 import NasaPhoto from "./Components/Astro/NasaPhoto";
 import Astro from "./Components/Astro/Astro";
-
 
 function App() {
   const [token, setToken] = useState(null);
@@ -64,6 +61,7 @@ function App() {
           <AstroComponent changeView={changeView} />
         ) : view === "nasa-photo" ? (
           <NasaPhoto changeView={changeView} />
+          <h1>NasaPhoto</h1>
         ) : (
           <h1>INVALID VIEW</h1>
         )
