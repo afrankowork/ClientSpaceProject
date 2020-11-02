@@ -1,7 +1,5 @@
-import React from 'react';
+import React from "react";
 
-return UpdateFeature(
-
-);
+const UpdateFeature = () => {};
 
 export default UpdateFeature;
