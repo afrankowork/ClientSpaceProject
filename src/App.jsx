@@ -7,7 +7,8 @@ import NavbarComponent from "./Components/Navbar";
 import LoginComponent from "./Components/Auth/Login";
 import RegisterComponent from "./Components/Auth/Register";
 import AstroComponent from "./Components/Astro/Astro";
-// import NasaPhoto from "./Components/Astro/NasaPhoto";
+import NasaPhoto from "./Components/Astro/NasaPhoto";
+import Astro from "./Components/Astro/Astro";
 
 function App() {
   const [token, setToken] = useState(null);
@@ -48,6 +49,7 @@ function App() {
 
   return (
     <div className="App">
+
       <NavbarComponent
         isLogin={isLogin}
         toggleLogin={toggleLogin}
@@ -58,7 +60,7 @@ function App() {
         view === "home" ? (
           <AstroComponent changeView={changeView} />
         ) : view === "nasa-photo" ? (
-          // <NasaPhoto changeView={changeView} />
+          <NasaPhoto changeView={changeView} />
           <h1>NasaPhoto</h1>
         ) : (
           <h1>INVALID VIEW</h1>
@@ -68,6 +70,7 @@ function App() {
       ) : (
         <RegisterComponent updateSessionToken={updateSessionToken} />
       )}
+
     </div>
   );
 }
