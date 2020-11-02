@@ -18,7 +18,11 @@ const RegisterComponent = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (password.length < 5 || password != passwordConfirm) {
+    if (
+      password.length < 5 ||
+      password != passwordConfirm ||
+      username.length < 5
+    ) {
       if (password.length < 5) {
         setPasswordMessage("password must be at least 5 characters long");
       } else {
@@ -26,9 +30,15 @@ const RegisterComponent = (props) => {
       }
 
       if (password != passwordConfirm) {
-        setPasswordConfirmMessage("password values must match");
+        setPasswordConfirmMessage("passwords must match");
       } else {
         setPasswordConfirmMessage("");
+      }
+
+      if (username.length < 4) {
+        setUsernameMessage("username must be at least 4 characters long");
+      } else {
+        setUsernameMessage("");
       }
 
       return;
@@ -62,18 +72,28 @@ const RegisterComponent = (props) => {
         <h2>Register</h2>
         <FormGroup>
           <Label htmlFor="username">Username</Label>
+
+          {usernameMessage ? (
+            <span className="reg-error">{usernameMessage}</span>
+          ) : null}
+
           <input
             type="text"
             id="username"
             name="username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            required
             autoComplete="off"
           />
         </FormGroup>
+
         <FormGroup>
           <Label htmlFor="password">Password</Label>
+
+          {passwordMessage ? (
+            <span className="reg-error">{passwordMessage}</span>
+          ) : null}
+
           <input
             type="password"
             id="password"
@@ -82,11 +102,14 @@ const RegisterComponent = (props) => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </FormGroup>
-        {passwordMessage ? (
-          <p className="reg-error">{passwordMessage}</p>
-        ) : null}
+
         <FormGroup>
           <Label htmlFor="passwordConfirm">Confirm Password</Label>
+
+          {passwordConfirmMessage ? (
+            <span className="reg-error">{passwordConfirmMessage}</span>
+          ) : null}
+
           <input
             type="password"
             id="passwordConfirm"
@@ -95,12 +118,8 @@ const RegisterComponent = (props) => {
             onChange={(e) => setPasswordConfirm(e.target.value)}
           />
         </FormGroup>
-        {passwordConfirmMessage ? (
-          <p className="reg-error">{passwordConfirmMessage}</p>
-        ) : null}
-        {/* <Link to="/"> */}
+
         <button type="submit">Register</button>
-        {/* </Link> */}
       </Form>
     </>
   );
