@@ -14,7 +14,7 @@ const NavbarComponent = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
   return (
-    <Navbar color="dark" dark expand="md">
+    <Navbar dark expand="md">
       <NavbarBrand href="/">AJAA</NavbarBrand>
       <NavbarToggler onClick={toggle} />
       <Collapse isOpen={isOpen} navbar>
@@ -30,10 +30,11 @@ const NavbarComponent = (props) => {
           ) : (
             <>
               <NavItem>
-                <Link to="/register">Register</Link>
-              </NavItem>
-              <NavItem>
-                <Link to="/">Login</Link>
+                {props.isLogin ? (
+                  <Button onClick={props.toggleLogin}>Register</Button>
+                ) : (
+                  <Button onClick={props.toggleLogin}>Login</Button>
+                )}
               </NavItem>
             </>
           )}

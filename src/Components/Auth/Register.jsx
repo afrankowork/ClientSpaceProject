@@ -7,6 +7,10 @@ const RegisterComponent = (props) => {
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
 
+  const nextURL = "localhost:3000";
+  const nextTitle = "Home";
+  const nextState = { additionalInformation: "Updated the URL with JS" };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -26,12 +30,9 @@ const RegisterComponent = (props) => {
       })
         .then((res) => res.json())
         .then((json) => {
-          if (json.sessionToken === undefined) {
-            alert("Wrong password!");
-          } else {
-            props.updateSessionToken(json.sessionToken);
-            window.location.href = "http://localhost:3000"; //! WOULD LIKE TO CHANGE
-          }
+          props.updateSessionToken(json.sessionToken);
+          // window.location.href = "http://localhost:3000"; //! WOULD LIKE TO CHANGE
+          // window.history.replaceState(nextState, nextTitle, nextURL); //! STILL NOT A WORKING SOLUTION
         });
 
       props.updateSessionToken("HeyMan");

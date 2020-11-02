@@ -22,7 +22,13 @@ const LoginComponent = (props) => {
       }),
     })
       .then((res) => res.json())
-      .then((json) => props.updateSessionToken(json.sessionToken));
+      .then((json) => {
+        if (json.sessionToken === undefined) {
+          alert("Wrong password!");
+        } else {
+          props.updateSessionToken(json.sessionToken);
+        }
+      });
   };
 
   return (
