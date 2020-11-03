@@ -45,7 +45,10 @@ const RegisterComponent = (props) => {
     }
 
     console.log("fetching...");
-    fetch("https://ajaaspaceserver.herokuapp.com/test/register", {
+    // let url = "https://ajaaspaceserver.herokuapp.com/test/register";
+    let url = "http://localhost:3500/test/register";
+
+    fetch(url, {
       method: "POST",
       body: JSON.stringify({
         user: {
@@ -68,7 +71,7 @@ const RegisterComponent = (props) => {
   return (
     <>
       <div className="form-background"></div>
-      <Form onSubmit={handleSubmit}>
+      <Form className="auth-form" onSubmit={handleSubmit}>
         <h2>Register</h2>
         <FormGroup>
           <Label htmlFor="username">Username</Label>
