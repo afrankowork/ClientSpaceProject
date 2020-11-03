@@ -9,10 +9,11 @@ import RegisterComponent from "./Components/Auth/Register";
 import AstroComponent from "./Components/Astro/Astro";
 import NasaPhoto from "./Components/Astro/NasaPhoto";
 
-import Astro from "./Components/Astro/Astro";
+import CreateFeature from "./Components/Astro/CreateFeature";
+// import Astro from "./Components/Astro/Astro";
+
 import ImageUpload from './Components/Astro/ImageUpload';
 import StellarImages from './Components/Astro/StellarImages';
-
 
 function App() {
   const [token, setToken] = useState(null);
@@ -76,8 +77,8 @@ function App() {
         <RegisterComponent updateSessionToken={updateSessionToken} />
       )}
 
-        <StellarImages/>
-        <ImageUpload/>
+<!--         <StellarImages/> -->
+<!--         <ImageUpload/> -->
     </div>
   );
 }
