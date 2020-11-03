@@ -7,5 +7,5 @@ switch (window.location.hostname) {
     case 'ajaaspaceclient.herokuapp.com':
         APIURL = 'https://ajaaspaceclient.herokuapp.com'
 }
-
+console.log(window.location.hostname);
 export default APIURL;

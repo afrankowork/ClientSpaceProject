@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { Link } from "react-router-dom";
+import APIURL from '/Users/adamfrankowski/Desktop/spaceProject/client/src/helpers/environment.js'
 
 const LoginComponent = (props) => {
   const [username, setUsername] = useState("");
@@ -11,8 +12,8 @@ const LoginComponent = (props) => {
     e.preventDefault();
 
     setIsLoading(true);
-
-    fetch("https://ajaaspaceserver.herokuapp.com/test/login", {
+    //let url = "https://ajaaspaceserver.herokuapp.com/test/logiin
+    fetch(`{APIURL}/test/login`, {
       method: "POST",
       body: JSON.stringify({
         user: {
