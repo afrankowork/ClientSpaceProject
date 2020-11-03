@@ -58,7 +58,7 @@ const LoginComponent = (props) => {
           Loading...
         </h1>
       </div>
-      <Form onSubmit={handleSubmit}>
+      <Form className="auth-form" onSubmit={handleSubmit}>
         <h2>Login</h2>
         <FormGroup>
           <Label htmlFor="username">Username</Label>

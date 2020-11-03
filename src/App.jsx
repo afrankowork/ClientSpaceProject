@@ -8,6 +8,7 @@ import LoginComponent from "./Components/Auth/Login";
 import RegisterComponent from "./Components/Auth/Register";
 import AstroComponent from "./Components/Astro/Astro";
 import NasaPhoto from "./Components/Astro/NasaPhoto";
+import CreateFeature from "./Components/Astro/CreateFeature";
 // import Astro from "./Components/Astro/Astro";
 
 function App() {
