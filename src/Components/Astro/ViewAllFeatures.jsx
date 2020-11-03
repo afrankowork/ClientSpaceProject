@@ -22,7 +22,7 @@ const  ViewAllFeatures = () => {
 
 
      const fetchFeatures = () => {
-          fetch(`https://api.astronomyapi.com/api/v2/bodies/positions?latitude=${lat}&longitude=${lon}&elevation=${elevation}&from_date=${fYear}-${fMonth}-${fDay}&to_date=${tYear}-${tMonth}-${tDay}&time=${hr}:${min}:${sec}`, {
+          fetch(`https://api.astronomyapi.com/api/v2/bodies/positions?latitude=${lat}&longitude=${lon}&elevation=${elevation}&from_date=${fYear}-${fMonth}-${fDay}&to_date=${tYear}-${tMonth}-${tDay}&time=${hrs}:${min}:${sec}`, {
                method: 'GET',
                headers: new Headers ({
                     'Content-Type': 'application/json',
