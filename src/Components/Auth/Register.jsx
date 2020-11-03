@@ -49,6 +49,7 @@ const RegisterComponent = (props) => {
     console.log("fetching...");
      //let url = "https://ajaaspaceserver.herokuapp.com/test/register";
     let url = `${APIURL}/test/register`;
+  
 
     fetch(url, {
       method: "POST",
