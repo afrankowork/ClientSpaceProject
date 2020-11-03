@@ -6,6 +6,7 @@
   z-index: -1;
   background-image: url("https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2027&q=80");
   background-size: cover;
+  filter: brightness(0.9);
 }
 
 Form {
@@ -57,6 +58,20 @@ Form button:focus {
   border: 5px solid red;
 } */
 
+.nav-button {
+  color: white;
+  cursor: pointer;
+}
+
+.nav-button:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.reg-error {
+  color: red;
+  margin-left: 1em;
+}
 
 .nasa-photo {
   display: flex;

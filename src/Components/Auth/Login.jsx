@@ -5,9 +5,12 @@ import { Link } from "react-router-dom";
 const LoginComponent = (props) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    setIsLoading(true);
 
     fetch("https://ajaaspaceserver.herokuapp.com/test/login", {
       method: "POST",
@@ -24,16 +27,37 @@ const LoginComponent = (props) => {
       .then((res) => res.json())
       .then((json) => {
         if (json.sessionToken === undefined) {
+          console.log(json.sessionToken);
           alert("Wrong password!");
         } else {
+          console.log(json.sessionToken);
           props.updateSessionToken(json.sessionToken);
         }
+      })
+      .catch((error) => {
+        console.log("ERROR:", error);
+        alert("ght is jwx!");
       });
   };
 
   return (
     <>
-      <div className="form-background"></div>
+      <div className="form-background">
+        <h1
+          style={{
+            display: isLoading ? "block" : "none",
+            position: "relative",
+            width: "fit-content",
+            left: "50%",
+            top: "40%",
+            transform: "translate(-50%, -50%)",
+            zIndex: "5",
+            color: "white",
+          }}
+        >
+          Loading...
+        </h1>
+      </div>
       <Form onSubmit={handleSubmit}>
         <h2>Login</h2>
         <FormGroup>

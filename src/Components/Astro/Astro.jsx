@@ -1,4 +1,5 @@
 import React from "react";
+
 import { Button } from 'reactstrap';
 //import stars from "./stars";
 
@@ -11,10 +12,7 @@ export default function Astro(props) {
     </div>
     <div>
       <Button id="picturelog" onClick={() => props.changeView('output', 'imageTitle', 'progress-bar')}>Your Photos</Button>
-    </div>
+      </div>
     </>
   );
 }
-
-
-
