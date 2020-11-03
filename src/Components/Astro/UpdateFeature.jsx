@@ -1,7 +1,9 @@
 import React from 'react';
 
-return UpdateFeature(
-
-);
+const UpdateFeature = () => {
+     return(
+          <h1>Update Feature</h1>
+     );
+}
 
 export default UpdateFeature;

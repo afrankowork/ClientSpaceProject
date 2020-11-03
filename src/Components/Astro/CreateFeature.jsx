@@ -1,7 +1,10 @@
 import React from 'react';
 
-return CreateFeature(
-
-);
+const CreateFeature = () => {
+     
+     return(
+          <h1>Create Feature</h1>
+     );
+}
 
 export default CreateFeature;
