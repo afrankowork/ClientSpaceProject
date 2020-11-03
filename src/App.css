@@ -1,38 +1,154 @@
-.App {
+.form-background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  z-index: -1;
+  background-image: url("https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2027&q=80");
+  background-size: cover;
+  filter: brightness(0.9);
+}
+
+.auth-form {
+  background-color: rgba(0, 0, 0, 0);
+  padding: 0 1em;
+  margin: 6em auto;
+  max-width: 480px;
+  color: white;
+  /* filter: drop-shadow(0px 10px 6px rgba(0, 0, 0, 0.5)); */
+  /* -webkit-box-shadow: 0px 10px 25px 6px rgba(0, 0, 0, 0.54); */
+  /* box-shadow: 0px 10px 25px 6px rgba(0, 0, 0, 0.54); */
+}
+
+.auth-form h2 {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.auth-form input {
+  width: 100%;
+  height: 40px;
+  outline: none;
+  border: 2px solid white;
+  background-color: rgba(0, 0, 0, 0);
+  /* background-image: url("https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2027&q=80"); */
+  color: white;
+  padding: 0 0.75em;
+  border-radius: 8px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.auth-form button {
+  background-color: rgba(0, 0, 0, 0);
+  border: 2px solid white;
+  outline: none;
+  color: white;
+  font-size: larger;
+  border-radius: 8px;
+  padding: 0 15px 5px;
+  position: relative;
+  margin: 10px 0;
+  left: 50%;
+  transform: translate(-50%);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.auth-form button:focus {
+  outline: none;
+}
+
+/* Input {
+  border: 5px solid red;
+} */
+
+.nav-button {
+  color: white;
+  cursor: pointer;
+}
+
+.nav-button:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.reg-error {
+  color: red;
+  margin-left: 1em;
+}
+
+.nasa-photo {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 40px;
+  margin: 0;
+  max-height: 100%;
+  background-image: url("https://images.unsplash.com/photo-1520034475321-cbe63696469a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80");
+  height: 100%;
+}
+
+.nasa-photo img {
+  width: 50%;
+  margin-right: 50px;
+  object-fit: contain;
+  max-height: 80vh;
+  border: lightgrey 2px;
+}
+
+.nasa-photo h1 {
+  margin-top: 0;
+  margin-bottom: 0;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.nasa-photo .date {
+  margin-top: 0;
+  margin-bottom: 30px;
+  color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.nasa-photo .explanation {
+  color: white;
+}
+
+@media (max-width: 1280px) {
+  .nasa-photo {
+    display: block;
   }
-  to {
-    transform: rotate(360deg);
+
+  .nasa-photo img {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 30px;
   }
+}
+
+.astro {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+#nasabutton {
+  font-size: 40px;
+  background: #9b9b9c;
+  display: inline-block;
+  padding: 40px 80px;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: 0.3s ease all;
+  text-transform: uppercase;
+  top: 100px;
+}
+
+#nasabutton:hover {
+  border-radius: 50%;
+  background: #9b9b9c;
+  text-emphasis-color: white;
+}
+
+.modal-form {
+  padding: 1em;
+}
+
+.other-data {
+  list-style: none;
+  padding-left: 0;
 }
