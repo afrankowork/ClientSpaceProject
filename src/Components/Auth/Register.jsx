@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Form, FormGroup, Input, Label } from "reactstrap";
 import { Link } from "react-router-dom";
-import APIURL from '/Users/adamfrankowski/Desktop/spaceProject/client/src/helpers/environment.js'
+import APIURL from 'src/helpers/environment.js'
 
 
 const RegisterComponent = (props) => {
