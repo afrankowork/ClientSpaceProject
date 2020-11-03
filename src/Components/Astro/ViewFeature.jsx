@@ -1,5 +1,9 @@
 import React from "react";
 
-const ViewFeature = () => {};
+const ViewFeature = () => {
+     return(
+          <h1>View A Feature</h1>
+     );
+}
 
 export default ViewFeature;
