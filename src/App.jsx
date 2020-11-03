@@ -11,12 +11,15 @@ import AstroComponent from "./Components/Astro/Astro";
 import NasaPhotoComponent from "./Components/Astro/NasaPhoto";
 import NasaPhoto from "./Components/Astro/NasaPhoto";
 import Astro from "./Components/Astro/Astro";
+import ImageUpload from './Components/Astro/ImageUpload';
+import StellarImages from './Components/Astro/StellarImages';
 
 
 function App() {
   const [token, setToken] = useState(null);
   const [isLogin, setIsLogin] = useState(true);
   const [view, setView] = useState("home");
+  const [selectedImg, setSelectedImg] = useState(null);
 
   const changeView = (newView) => {
     setView(newView);
@@ -72,7 +75,8 @@ function App() {
       ) : (
         <RegisterComponent updateSessionToken={updateSessionToken} />
       )}
-
+        <StellarImages/>
+        <ImageUpload/>
     </div>
   );
 }
