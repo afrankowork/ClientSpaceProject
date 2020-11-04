@@ -1,17 +1,23 @@
 import React, {useState, useEffect} from "react";
+import { Button, Form, FormGroup, Input, Label, Modal } from "reactstrap";
 
 
 const UpdateFeature = (props) => {
      
+  const [isOpen, setIsOpen] = useState(false);
   const [name, setName] = useState(props.name);
   const [type, setType] = useState("planet");
   const [description, setDescription] = useState("");
   const [userNotes, setUserNotes] = useState("");
 
-  const create = (e) => {
+  const toggle = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const update = (e) => {
      e.preventDefault();
  
-     const url = `https://ajaaspaceserver.herokuapp.com/feature/${id}`;
+     const url = `https://ajaaspaceserver.herokuapp.com/feature/${props.id}`;
      
  
      console.log(props.token);
@@ -33,16 +39,20 @@ const UpdateFeature = (props) => {
        }),
      })
        .then((res) => {
-         console.log(res);
+        props.getFeatures();
+        setIsOpen(false);
        })
        .catch(console.log);
    };
      
      return(
           <>
+          <Button color="success" onClick={toggle}>
+          Update
+          </Button>
       
       <Modal isOpen={isOpen}>
-        <Form onSubmit={create} className="modal-form">
+        <Form onSubmit={update} className="modal-form">
           <h3>Save Feature</h3>
           <FormGroup>
             <Label htmlFor="name">Feature Name</Label>
@@ -89,8 +99,8 @@ const UpdateFeature = (props) => {
           <Button color="warning" onClick={toggle}>
             Cancel
           </Button>
-          <Button style={{ marginLeft: "1em" }} color="success" type="submit">
-            Save
+          <Button style={{ marginLeft: "1em" }} color="success" type="submit" >
+            Update
           </Button>
         </Form>
       </Modal>
