@@ -36,8 +36,11 @@ const CreateFeature = (props) => {
 
   const create = (e) => {
     e.preventDefault();
+
     const url = "https://ajaaspaceserver.herokuapp.com/feature";
     // const url = "http://localhost:3500/feature";
+
+    console.log(props.token);
 
     fetch(url, {
       method: "POST",
