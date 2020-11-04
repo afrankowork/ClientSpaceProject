@@ -61,6 +61,7 @@
 .nav-button {
   color: white;
   cursor: pointer;
+  margin-left: 1.5em;
 }
 
 .nav-button:hover {
@@ -151,4 +152,41 @@
 .other-data {
   list-style: none;
   padding-left: 0;
+}
+
+.all-features {
+  max-width: 300px;
+  min-width: 300px;
+  display: block;
+  margin: 12px;
+  border-radius: none;
+  color: white;
+}
+
+#card-title-style {
+  line-height: 2;
+  font-size: large;
+}
+
+#feature-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: auto;
+}
+
+#card-style{
+  border-radius: 0;
+  background-color: #6f6a79;
+}
+
+#card-text-style .btn{
+  border: 2px solid white;
+  border-radius: 500px;
+  background-color: #3e4670;
+  color: white;
+}
+
+#sky-title {
+  padding-left: 30px;
 }

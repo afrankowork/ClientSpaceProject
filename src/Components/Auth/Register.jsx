@@ -22,7 +22,7 @@ const RegisterComponent = (props) => {
     if (
       password.length < 5 ||
       password != passwordConfirm ||
-      username.length < 5
+      username.length < 4
     ) {
       if (password.length < 5) {
         setPasswordMessage("password must be at least 5 characters long");
@@ -46,8 +46,8 @@ const RegisterComponent = (props) => {
     }
 
     console.log("fetching...");
-    //let url = "https://ajaaspaceserver.herokuapp.com/test/register";
-    let url = `${APIURL}/test/register`;
+    let url = "https://ajaaspaceserver.herokuapp.com/test/register";
+    // let url = `${APIURL}/test/register`;
 
     fetch(url, {
       method: "POST",
