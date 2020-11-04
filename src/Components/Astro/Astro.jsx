@@ -1,8 +1,7 @@
 import React from "react";
 
 import { Button } from "reactstrap";
-//import stars from "./stars";
-
+import ViewAllFeatures from './ViewAllFeatures';
 import DeleteFeature from "./DeleteFeature";
 
 export default function Astro(props) {
@@ -13,6 +12,7 @@ export default function Astro(props) {
           Nasa Photo of the Day
         </Button>
       </div>
+      <ViewAllFeatures token={props.token} />
       <div>
         <Button
           id="picturelog"
