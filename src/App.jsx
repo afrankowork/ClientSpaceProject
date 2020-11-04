@@ -9,11 +9,14 @@ import RegisterComponent from "./Components/Auth/Register";
 import AstroComponent from "./Components/Astro/Astro";
 import NasaPhoto from "./Components/Astro/NasaPhoto";
 
+import ImageUpload from "./Components/Astro/ImageUpload";
+import StellarImages from "./Components/Astro/StellarImages";
+import ImageGrid from "./Components/Astro/ImageGrid";
+import Modal from "./Components/Astro/Modal";
+
 import CreateFeature from "./Components/Astro/CreateFeature";
 // import Astro from "./Components/Astro/Astro";
 
-import ImageUpload from "./Components/Astro/ImageUpload";
-import StellarImages from "./Components/Astro/StellarImages";
 import ViewAllFeatures from "./Components/Astro/ViewAllFeatures";
 import ViewSavedFeatures from "./Components/Astro/ViewSavedFeatures";
 
@@ -66,7 +69,18 @@ function App() {
       />
       {token ? (
         view === "home" ? (
-          <AstroComponent changeView={changeView} token={token} />
+          <>
+            <AstroComponent changeView={changeView} token={token} />
+            <StellarImages />
+            <ImageUpload />
+            <ImageGrid setSelectedImg={setSelectedImg} />
+            {selectedImg && (
+              <Modal
+                selectedImg={selectedImg}
+                setSelectedImg={setSelectedImg}
+              />
+            )}
+          </>
         ) : // <h1>AstroComponent</h1>
         view === "nasa-photo" ? (
           <NasaPhoto changeView={changeView} />
@@ -81,9 +95,6 @@ function App() {
       ) : (
         <RegisterComponent updateSessionToken={updateSessionToken} />
       )}
-
-      {/* <StellarImages/>
-         <ImageUpload/> */}
     </div>
   );
 }
@@ -121,3 +132,4 @@ export default App;
 </Switch> 
 </Router>*/
 }
+
