@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import {
-     Button,
      Card,
      CardBody,
      CardTitle,
      CardText,
 } from 'reactstrap';
+import CreateFeature from './CreateFeature';
 
 const ViewAllFeatures = (props) => {
      
+     const aut = 'OTFjZTQzN2YtNTZkMC00NWNjLTkwYTItZWVkMWZhYzI2MjQzOjNjYjU4NTIxNjQ1MmI2ZWJhZmMxN2JkYmY0YjE0OWNhMDQ3YTVlMzU5ZGQ3ZGQyOGQ4ZWY3OTZhYmI5MTEzZWZhOWI4ZjljNGFhMWM4NmE0YjFkNDAzZDc0MGI3Mjc5OTU2ODc1ZDE3MjZiNjA2MzEyODI2YjFjN2JmNzAxNjc2ZTdlMDU3M2ZjNGRiYTllODU0YzlkY2EwYzQ4YWM1Y2MxYTI5ZmM2YWM1OGJiYjZmM2EyNWI4ZGUxYjFjNzRmYTRhNzRhOTYxODQ2NzdiYmYwMzczOTQ4ODU5MDU0ODBl';
 
      const [ featureList, setFeatureList ] = useState([]);
      
@@ -51,7 +52,7 @@ const ViewAllFeatures = (props) => {
                method: 'GET',
                headers: new Headers ({
                     'Content-Type': 'application/json',
-                    'Authorization': 'Basic OTFjZTQzN2YtNTZkMC00NWNjLTkwYTItZWVkMWZhYzI2MjQzOjNjYjU4NTIxNjQ1MmI2ZWJhZmMxN2JkYmY0YjE0OWNhMDQ3YTVlMzU5ZGQ3ZGQyOGQ4ZWY3OTZhYmI5MTEzZWZhOWI4ZjljNGFhMWM4NmE0YjFkNDAzZDc0MGI3Mjc5OTU2ODc1ZDE3MjZiNjA2MzEyODI2YjFjN2JmNzAxNjc2ZTdlMDU3M2ZjNGRiYTllODU0YzlkY2EwYzQ4YWM1Y2MxYTI5ZmM2YWM1OGJiYjZmM2EyNWI4ZGUxYjFjNzRmYTRhNzRhOTYxODQ2NzdiYmYwMzczOTQ4ODU5MDU0ODBl'
+                    'Authorization': `Basic ${aut}`
                })
                }).then( (res) => res.json())
                .then((logData) => {
@@ -68,11 +69,12 @@ const ViewAllFeatures = (props) => {
      const featureRetriever = () => {
           return featureList.map((feature, index) => {
                return(
-                    <div>
-                         <Card>
+                    <div class="all-features">
+                         <Card id="card-style">
                               <CardBody>
-                                   <CardTitle>{feature.entry.name}{adjustedTime}</CardTitle>
-                                   <CardText>
+                                   <CardTitle id="card-title-style">{feature.entry.name}{adjustedTime}</CardTitle>
+                                   <hr/>
+                                   <CardText id="card-text-style">
                                         <ul>
                                         <li>
                                              Declination: {feature.cells[0].position.equatorial.declination.degrees}
@@ -84,15 +86,15 @@ const ViewAllFeatures = (props) => {
                                              Currently in sky: {inSky(feature.cells[0].position.horizonal.altitude.degrees)}
                                         </li>
                                         </ul>
-                                        {/* <CreateFeature
-                                        declination={feature.cells[0].position.equatorial.declination.degrees}
-                                        ascension={feature.cells[0].position.equatorial.rightAscension.hours}
-                                        distance={feature.cells[0].distance.fromEarth.km}
-                                        name={feature.entry.name}
-                                        azi={feature.cells[0].position.horizonal.azimuth.degrees}
-                                        alt={feature.cells[0].position.horizonal.altitude.degrees}
-                                        token={props.token}
-                                        /> */}
+                                        <CreateFeature
+                                             declination={feature.cells[0].position.equatorial.declination.degrees}
+                                             ascension={feature.cells[0].position.equatorial.rightAscension.hours}
+                                             distance={feature.cells[0].distance.fromEarth.km}
+                                             name={feature.entry.name}
+                                             azi={feature.cells[0].position.horizonal.azimuth.degrees}
+                                             alt={feature.cells[0].position.horizonal.altitude.degrees}
+                                             token={props.token}
+                                        />
                                    </CardText>
                               </CardBody>
                          </Card>
@@ -102,11 +104,17 @@ const ViewAllFeatures = (props) => {
      }
 
      return(
-          <h1>View All Features
-          {
-               featureRetriever()
-          }
-          </h1>
+          <>
+               <div id="sky-title">
+                    <h1>Sky Features</h1>
+               </div>
+               <div id="feature-box">
+                    <br />
+                    {
+                         featureRetriever()
+                    }
+               </div>
+          </>
      );
 }
 
