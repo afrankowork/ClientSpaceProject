@@ -71,7 +71,7 @@ function App() {
         view === "nasa-photo" ? (
           <NasaPhoto changeView={changeView} />
         ) : view === "saved" ? (
-          <ViewSavedFeatures />
+          <ViewSavedFeatures token={token} />
         ) : (
           // <h1>NasaPhoto</h1>
           <h1>INVALID VIEW</h1>
