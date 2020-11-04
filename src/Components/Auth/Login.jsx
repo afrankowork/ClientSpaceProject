@@ -7,13 +7,16 @@ const LoginComponent = (props) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     setIsLoading(true);
-    //let url = "https://ajaaspaceserver.herokuapp.com/test/logiin
-    fetch(`${APIURL}/test/login`, {
+    setIsError(false);
+    let url = "https://ajaaspaceserver.herokuapp.com/test/login";
+    // let url = "http://localhost:3500/test/login";
+    fetch(url, {
       method: "POST",
       body: JSON.stringify({
         user: {
@@ -28,16 +31,16 @@ const LoginComponent = (props) => {
       .then((res) => res.json())
       .then((json) => {
         if (json.sessionToken === undefined) {
-          console.log(json.sessionToken);
-          alert("Wrong password!");
+          setIsLoading(false);
+          setIsError(true);
         } else {
           console.log(json.sessionToken);
           props.updateSessionToken(json.sessionToken);
         }
       })
       .catch((error) => {
-        console.log("ERROR:", error);
-        alert("ght is jwx!");
+        setIsError(true);
+        setIsLoading(false);
       });
   };
 
@@ -63,6 +66,9 @@ const LoginComponent = (props) => {
         <h2>Login</h2>
         <FormGroup>
           <Label htmlFor="username">Username</Label>
+          {isError ? (
+            <span className="reg-error">incorrect username or password</span>
+          ) : null}
           <input
             type="text"
             id="username"

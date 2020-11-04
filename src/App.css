@@ -61,6 +61,7 @@
 .nav-button {
   color: white;
   cursor: pointer;
+  margin-left: 1.5em;
 }
 
 .nav-button:hover {

@@ -1,5 +1,6 @@
+
 import React, { useState, useEffect } from 'react';
-import {
+import {Button,
      Card,
      CardBody,
      CardTitle,
@@ -10,43 +11,40 @@ import CreateFeature from './CreateFeature';
 const ViewAllFeatures = (props) => {
      
      const aut = 'OTFjZTQzN2YtNTZkMC00NWNjLTkwYTItZWVkMWZhYzI2MjQzOjNjYjU4NTIxNjQ1MmI2ZWJhZmMxN2JkYmY0YjE0OWNhMDQ3YTVlMzU5ZGQ3ZGQyOGQ4ZWY3OTZhYmI5MTEzZWZhOWI4ZjljNGFhMWM4NmE0YjFkNDAzZDc0MGI3Mjc5OTU2ODc1ZDE3MjZiNjA2MzEyODI2YjFjN2JmNzAxNjc2ZTdlMDU3M2ZjNGRiYTllODU0YzlkY2EwYzQ4YWM1Y2MxYTI5ZmM2YWM1OGJiYjZmM2EyNWI4ZGUxYjFjNzRmYTRhNzRhOTYxODQ2NzdiYmYwMzczOTQ4ODU5MDU0ODBl';
+  
+  const [featureList, setFeatureList] = useState([]);
+  const [lat, setLatitude] = useState("");
+  const [lon, setLongitude] = useState("");
+  const [adjustedTime, setTime] = useState("");
 
-     const [ featureList, setFeatureList ] = useState([]);
-     
-     const [lat, setLatitude] = useState("");
-     const [lon, setLongitude] = useState("");
-     const [ adjustedTime, setTime ] = useState("");
-     
-     useEffect(() => {
-          
-          const showPosition = (position) => {
-            setLatitude(position.coords.latitude);
-            setLongitude(position.coords.longitude);
-          };
+  useEffect(() => {
+    const showPosition = (position) => {
+      setLatitude(position.coords.latitude);
+      setLongitude(position.coords.longitude);
+    };
 
-          var elevation = 50;
-          var now = new Date();
-          var year = now.getUTCFullYear();
-          var month = pad(now.getUTCMonth() + 1);
-          var day = pad(now.getUTCDate());
-          var hrs = pad(now.getUTCHours());
-          var min = pad(now.getUTCMinutes());
-          var sec = pad(now.getUTCSeconds());
-          var currentTime = `${hrs}:${min}:${sec}`;
+    var elevation = 50;
+    var now = new Date();
+    var year = now.getUTCFullYear();
+    var month = pad(now.getUTCMonth() + 1);
+    var day = pad(now.getUTCDate());
+    var hrs = pad(now.getUTCHours());
+    var min = pad(now.getUTCMinutes());
+    var sec = pad(now.getUTCSeconds());
+    var currentTime = `${hrs}:${min}:${sec}`;
 
-          function pad(num){
-               if(num < 10){
-                    let n = num.toString();
-                    return n.padStart(2, '0');
-               }else{
-                    return num;
-               }
-          }
+    function pad(num) {
+      if (num < 10) {
+        let n = num.toString();
+        return n.padStart(2, "0");
+      } else {
+        return num;
+      }
+    }
 
-          if (navigator.geolocation) {
-               navigator.geolocation.getCurrentPosition(showPosition);
-
-               let url = `https://api.astronomyapi.com/api/v2/bodies/positions?latitude=${lat}&longitude=${lon}&elevation=${elevation}&from_date=${year}-${month}-${day}&to_date=${year}-${month}-${day}&time=${currentTime}`;
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+      let url = `https://api.astronomyapi.com/api/v2/bodies/positions?latitude=${lat}&longitude=${lon}&elevation=${elevation}&from_date=${year}-${month}-${day}&to_date=${year}-${month}-${day}&time=${currentTime}`;
 
                fetch(url, {
                method: 'GET',
@@ -62,9 +60,11 @@ const ViewAllFeatures = (props) => {
           }
      }, [lat, lon]);
 
-     const inSky = (num) => {
-          return num > 10 ? "yes": "no";
-     }
+      
+
+const inSky = (num) => {
+    return num > 10 ? "yes" : "no";
+  };
 
      const featureRetriever = () => {
           return featureList.map((feature, index) => {
@@ -117,6 +117,9 @@ const ViewAllFeatures = (props) => {
           </>
      );
 }
+
+  
+  
 
 export default ViewAllFeatures;
 
