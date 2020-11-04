@@ -65,6 +65,7 @@ const CreateFeature = (props) => {
     })
       .then((res) => {
         console.log(res);
+        setIsOpen(false);
       })
       .catch(console.log);
   };

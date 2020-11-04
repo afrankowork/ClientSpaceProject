@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Card, CardBody, CardText, CardTitle } from "reactstrap";
+import { Button, Card, CardBody, CardText, CardTitle } from "reactstrap";
 import DeleteFeature from "./DeleteFeature";
+import UpdateFeature from './UpdateFeature';
 
 const ViewSavedFeatures = (props) => {
   const [features, setFeatures] = useState([]);
@@ -19,6 +20,12 @@ const ViewSavedFeatures = (props) => {
   };
 
   useEffect(getFeatures, []);
+
+  const update = () => {
+
+  }
+  
+  
 
   return features.length > 0 ? (
     <>
@@ -47,6 +54,10 @@ const ViewSavedFeatures = (props) => {
                     token={props.token}
                     id={feature.id}
                   />
+                  <UpdateFeature 
+                getFeatures={getFeatures}
+                token={props.token}
+                id={feature.id}/>
                 </CardText>
               </CardBody>
             </Card>
