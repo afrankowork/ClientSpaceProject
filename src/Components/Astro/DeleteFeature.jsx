@@ -5,7 +5,8 @@ const DeleteFeature = (props) => {
   const deleteCurrentFeature = () => {
     let token = props.token;
     let id = props.id;
-    let url = `http://localhost:3500/feature/${id}`;
+    // let url = `http://localhost:3500/feature/${id}`;
+    let url = `https://ajaaspaceserver.herokuapp.com/feature/${id}`;
 
     fetch(url, {
       method: "DELETE",
