@@ -14,6 +14,8 @@ import CreateFeature from "./Components/Astro/CreateFeature";
 
 import ImageUpload from "./Components/Astro/ImageUpload";
 import StellarImages from "./Components/Astro/StellarImages";
+import ViewAllFeatures from "./Components/Astro/ViewAllFeatures";
+import ViewSavedFeatures from "./Components/Astro/ViewSavedFeatures";
 
 function App() {
   const [token, setToken] = useState(null);
@@ -60,6 +62,7 @@ function App() {
         toggleLogin={toggleLogin}
         token={token}
         deleteSessionToken={deleteSessionToken}
+        changeView={changeView}
       />
       {token ? (
         view === "home" ? (
@@ -67,6 +70,8 @@ function App() {
         ) : // <h1>AstroComponent</h1>
         view === "nasa-photo" ? (
           <NasaPhoto changeView={changeView} />
+        ) : view === "saved" ? (
+          <ViewSavedFeatures />
         ) : (
           // <h1>NasaPhoto</h1>
           <h1>INVALID VIEW</h1>

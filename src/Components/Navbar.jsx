@@ -14,7 +14,7 @@ const NavbarComponent = (props) => {
   // const [isOpen, setIsOpen] = useState(false);
   // const toggle = () => setIsOpen(!isOpen);
   return (
-    <Navbar dark expand="md">
+    <Navbar color={props.token ? "dark" : null} dark expand="md">
       <NavbarBrand href="/">AJAA</NavbarBrand>
       {/* <NavbarToggler onClick={toggle} /> */}
       {/* <Collapse isOpen={isOpen} navbar> */}
@@ -24,9 +24,17 @@ const NavbarComponent = (props) => {
             <NavItem>
               <a
                 className="nav-button"
+                onClick={() => props.changeView("saved")}
+              >
+                Saved Features
+              </a>
+            </NavItem>
+            <NavItem>
+              <a
+                className="nav-button"
                 onClick={(e) => props.deleteSessionToken()}
               >
-                LOGOUT
+                Logout
               </a>
             </NavItem>
           </>
