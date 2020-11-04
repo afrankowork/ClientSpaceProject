@@ -1,7 +1,7 @@
 import "./App.css";
 import { useEffect, useState } from "react";
-import { Navbar, NavbarBrand, Nav, NavItem, Button } from "reactstrap";
-import { Link, Route, Switch, BrowserRouter as Router } from "react-router-dom";
+// import { Navbar, NavbarBrand, Nav, NavItem, Button } from "reactstrap";
+// import { Link, Route, Switch, BrowserRouter as Router } from "react-router-dom";
 
 import NavbarComponent from "./Components/Navbar";
 import LoginComponent from "./Components/Auth/Login";
@@ -63,7 +63,7 @@ function App() {
       />
       {token ? (
         view === "home" ? (
-          <AstroComponent changeView={changeView} />
+          <AstroComponent changeView={changeView} token={token} />
         ) : // <h1>AstroComponent</h1>
         view === "nasa-photo" ? (
           <NasaPhoto changeView={changeView} />
