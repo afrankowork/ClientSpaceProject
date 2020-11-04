@@ -1,18 +1,29 @@
 import React from "react";
+
 import { Button } from "reactstrap";
 import ViewAllFeatures from './ViewAllFeatures';
-// import stars from "./stars";
+import DeleteFeature from "./DeleteFeature";
 
 export default function Astro(props) {
   return (
     <>
-      {/* {stars} */}
       <div className="astro">
-        <Button onClick={() => props.changeView("nasa-photo")}>
+        <Button id="nasabutton" onClick={() => props.changeView("nasa-photo")}>
           Nasa Photo of the Day
         </Button>
       </div>
       <ViewAllFeatures token={props.token} />
+      <div>
+        <Button
+          id="picturelog"
+          onClick={() =>
+            props.changeView("output", "imageTitle", "progress-bar")
+          }
+        >
+          Your Photos
+        </Button>
+      </div>
+      <DeleteFeature token={props.token} id={6} />
     </>
   );
 }

@@ -1,19 +1,25 @@
 import "./App.css";
 import { useEffect, useState } from "react";
-import { Navbar, NavbarBrand, Nav, NavItem, Button } from "reactstrap";
-import { Link, Route, Switch, BrowserRouter as Router } from "react-router-dom";
+// import { Navbar, NavbarBrand, Nav, NavItem, Button } from "reactstrap";
+// import { Link, Route, Switch, BrowserRouter as Router } from "react-router-dom";
 
 import NavbarComponent from "./Components/Navbar";
 import LoginComponent from "./Components/Auth/Login";
 import RegisterComponent from "./Components/Auth/Register";
 import AstroComponent from "./Components/Astro/Astro";
 import NasaPhoto from "./Components/Astro/NasaPhoto";
+
+import CreateFeature from "./Components/Astro/CreateFeature";
 // import Astro from "./Components/Astro/Astro";
+
+import ImageUpload from "./Components/Astro/ImageUpload";
+import StellarImages from "./Components/Astro/StellarImages";
 
 function App() {
   const [token, setToken] = useState(null);
   const [isLogin, setIsLogin] = useState(true);
   const [view, setView] = useState("home");
+  const [selectedImg, setSelectedImg] = useState(null);
 
   const changeView = (newView) => {
     setView(newView);
@@ -57,7 +63,7 @@ function App() {
       />
       {token ? (
         view === "home" ? (
-          <AstroComponent changeView={changeView} />
+          <AstroComponent changeView={changeView} token={token} />
         ) : // <h1>AstroComponent</h1>
         view === "nasa-photo" ? (
           <NasaPhoto changeView={changeView} />
@@ -70,6 +76,9 @@ function App() {
       ) : (
         <RegisterComponent updateSessionToken={updateSessionToken} />
       )}
+
+      {/* <StellarImages/>
+         <ImageUpload/> */}
     </div>
   );
 }
