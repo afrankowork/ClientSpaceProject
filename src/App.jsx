@@ -8,10 +8,10 @@ import LoginComponent from "./Components/Auth/Login";
 import RegisterComponent from "./Components/Auth/Register";
 import AstroComponent from "./Components/Astro/Astro";
 import NasaPhoto from "./Components/Astro/NasaPhoto";
-
-import Astro from "./Components/Astro/Astro";
 import ImageUpload from './Components/Astro/ImageUpload';
 import StellarImages from './Components/Astro/StellarImages';
+import ImageGrid from './Components/Astro/ImageGrid';
+import Modal from './Components/Astro/Modal'
 
 
 function App() {
@@ -78,6 +78,10 @@ function App() {
 
         <StellarImages/>
         <ImageUpload/>
+        <ImageGrid setSelectedImg={setSelectedImg} />
+      { selectedImg && (
+        <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg} />
+      )}
     </div>
   );
 }

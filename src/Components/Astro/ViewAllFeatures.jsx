@@ -15,7 +15,7 @@ const  ViewAllFeatures = () => {
      const [ tMonth, setTmonth] = useState('');
      const [ tDay, setTday ] = useState('');
 
-     const [ hrs, setHr ] = useState('');
+     const [ hr, setHr ] = useState('');
      const [ min, setMin ] = useState('');
      const [ sec, setSec ] = useState('');
 
