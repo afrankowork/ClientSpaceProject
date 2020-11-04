@@ -1,8 +1,8 @@
 import React from "react";
 
-import { Button } from 'reactstrap';
+import { Button } from "reactstrap";
+import ViewAllFeatures from "./ViewAllFeatures";
 
-import ViewAllFeatures from './ViewAllFeatures';
 import DeleteFeature from "./DeleteFeature";
 import Weather from './Weather';
 import NasaPhoto from './NasaPhoto';
@@ -39,8 +39,6 @@ export default function Astro(props) {
           Your Photos
         </Button>
       </div>
-
-      <DeleteFeature token={props.token} id={6} />
     </>
   );
 }
