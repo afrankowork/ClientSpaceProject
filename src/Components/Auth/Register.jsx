@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import { Button, Form, FormGroup, Input, Label } from "reactstrap";
 import { Link } from "react-router-dom";
+<<<<<<< HEAD
 import APIURL from '../../helpers/environment'
 
+=======
+import APIURL from "../..//helpers/environment.js";
+>>>>>>> 08a8b9aa017417c9f7869e939fe709a6f2503fc2
 
 const RegisterComponent = (props) => {
   const [username, setUsername] = useState("");
@@ -47,7 +51,7 @@ const RegisterComponent = (props) => {
     }
 
     console.log("fetching...");
-     //let url = "https://ajaaspaceserver.herokuapp.com/test/register";
+    //let url = "https://ajaaspaceserver.herokuapp.com/test/register";
     let url = `${APIURL}/test/register`;
   
 

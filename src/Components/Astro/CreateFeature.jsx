@@ -17,7 +17,7 @@ const CreateFeature = (props) => {
   
   */
 
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   const [name, setName] = useState(props.name);
   const [type, setType] = useState("planet");
@@ -36,8 +36,8 @@ const CreateFeature = (props) => {
 
   const create = (e) => {
     e.preventDefault();
-    // const url = "https://ajaaspaceserver.herokuapp.com/feature";
-    const url = "http://localhost:3500/feature";
+    const url = "https://ajaaspaceserver.herokuapp.com/feature";
+    // const url = "http://localhost:3500/feature";
 
     fetch(url, {
       method: "POST",
@@ -67,69 +67,74 @@ const CreateFeature = (props) => {
   };
 
   return (
-    <Modal isOpen={isOpen}>
-      <Form onSubmit={create} className="modal-form">
-        <h3>Save Feature</h3>
-        <FormGroup>
-          <Label htmlFor="name">Feature Name</Label>
-          <Input
-            onChange={(e) => setName(e.target.value)}
-            id="name"
-            type="text"
-            value={name}
-            required
-          />
-        </FormGroup>
-        <FormGroup>
-          <Label htmlFor="type">Type</Label>
-          <Input
-            onChange={(e) => setType(e.target.value)}
-            id="type"
-            type="select"
-            value={type}
-          >
-            <option value="planet">Planet</option>
-            <option value="constellation">Constellation</option>
-            <option value="star">Star</option>
-            <option value="other">Other</option>
-          </Input>
-        </FormGroup>
-        <FormGroup>
-          <Label htmlFor="description">Description</Label>
-          <Input
-            onChange={(e) => setDescription(e.target.value)}
-            type="textarea"
-            id="description"
-            value={description}
-          />
-        </FormGroup>
-        <FormGroup>
-          <Label htmlFor="notes">Notes</Label>
-          <Input
-            type="textarea"
-            id="notes"
-            value={userNotes}
-            onChange={(e) => setUserNotes(e.target.value)}
-          />
-        </FormGroup>
-        <FormGroup>
-          <h4>Other Data</h4>
-          <ul className="other-data">
-            <li>Distance: {distance}</li>
-            <li>Ascension: {ascension}</li>
-            <li>Declination: {declination}</li>
-            <li>Altitude: {alt}</li>
-            <li>Azimuth: {azi}</li>
-          </ul>
-        </FormGroup>
-        <Button color="warning" onClick={toggle}>
-          Cancel
-        </Button>
-        <Button style={{ marginLeft: "1em" }} color="success" type="submit">
-          Save
-        </Button>
-      </Form>
-    </Modal>
+    <>
+      <Button color="success" onClick={toggle}>
+        Save to List
+      </Button>
+      <Modal isOpen={isOpen}>
+        <Form onSubmit={create} className="modal-form">
+          <h3>Save Feature</h3>
+          <FormGroup>
+            <Label htmlFor="name">Feature Name</Label>
+            <Input
+              onChange={(e) => setName(e.target.value)}
+              id="name"
+              type="text"
+              value={name}
+              required
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label htmlFor="type">Type</Label>
+            <Input
+              onChange={(e) => setType(e.target.value)}
+              id="type"
+              type="select"
+              value={type}
+            >
+              <option value="planet">Planet</option>
+              <option value="constellation">Constellation</option>
+              <option value="star">Star</option>
+              <option value="other">Other</option>
+            </Input>
+          </FormGroup>
+          <FormGroup>
+            <Label htmlFor="description">Description</Label>
+            <Input
+              onChange={(e) => setDescription(e.target.value)}
+              type="textarea"
+              id="description"
+              value={description}
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label htmlFor="notes">Notes</Label>
+            <Input
+              type="textarea"
+              id="notes"
+              value={userNotes}
+              onChange={(e) => setUserNotes(e.target.value)}
+            />
+          </FormGroup>
+          <FormGroup>
+            <h4>Other Data</h4>
+            <ul className="other-data">
+              <li>Distance: {distance}km</li>
+              <li>Ascension: {ascension}hrs</li>
+              <li>Declination: {declination}&deg;</li>
+              <li>Altitude: {alt}&deg;</li>
+              <li>Azimuth: {azi}&deg;</li>
+            </ul>
+          </FormGroup>
+          <Button color="warning" onClick={toggle}>
+            Cancel
+          </Button>
+          <Button style={{ marginLeft: "1em" }} color="success" type="submit">
+            Save
+          </Button>
+        </Form>
+      </Modal>
+    </>
   );
 };
 

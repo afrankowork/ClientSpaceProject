@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { Link } from "react-router-dom";
+<<<<<<< HEAD
 import APIURL from '../../helpers/environment'
+=======
+import APIURL from "../../helpers/environment";
+>>>>>>> 08a8b9aa017417c9f7869e939fe709a6f2503fc2
 
 const LoginComponent = (props) => {
   const [username, setUsername] = useState("");
