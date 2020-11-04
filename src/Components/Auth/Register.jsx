@@ -24,7 +24,7 @@ const RegisterComponent = (props) => {
     if (
       password.length < 5 ||
       password != passwordConfirm ||
-      username.length < 5
+      username.length < 4
     ) {
       if (password.length < 5) {
         setPasswordMessage("password must be at least 5 characters long");
