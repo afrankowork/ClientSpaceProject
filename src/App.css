@@ -173,22 +173,23 @@ box-shadow: 4px 11px 18px 0px rgba(51,51,51,1);
 
 /* base styles & title */
 
-.ImageTitle h1{
-  color: black;
+
+.StellarImages h1{
+  color: navy;
   font-size: 1.2rem;
   letter-spacing: 2px;
   font-weight: normal;
 }
-.ImageTitle h2, .ImageTitle p{
+.StellarImages h2, .ImageTitle p{
   text-align: center;
 }
-.ImageTitle h2{
+.StellarImages h2{
   margin-top: 60px;
   font-size: 2.6rem;
 }
 
 /* upload form styles */
-form{
+#imageForm{
   margin: 30px auto 10px;
   text-align: center;
 }
@@ -203,7 +204,8 @@ form{
   display: block;
   width: 30px;
   height: 30px;
-  border: 1px solid black;
+  border: 1px solid navy;
+
   border-radius: 50%;
   margin: 10px auto;
   line-height: 30px;
@@ -211,10 +213,14 @@ form{
   font-weight: bold;
   font-size: 24px;
 }
+
+
 #imageLabel:hover{
-  background: white;
+  background: navy;
+
   color: white;
 }
+
 .output{
   height: 60px;
   font-size: 0.8rem;

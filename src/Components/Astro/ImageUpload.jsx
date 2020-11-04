@@ -22,8 +22,10 @@ const ImageUpload = () => {
 
     return (
         <>
-            <form>
-            <label className="imageLabel">
+
+            <form className="imageForm">
+            <label className="imageLabel" >
+
                 <input type="file" onChange={handleChange} />
                 <span>+</span>
             </label>
