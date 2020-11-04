@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button, Form, FormGroup, Input, Label } from "reactstrap";
 import { Link } from "react-router-dom";
+import APIURL from "../..//helpers/environment.js";
 
 const RegisterComponent = (props) => {
   const [username, setUsername] = useState("");
@@ -21,7 +22,7 @@ const RegisterComponent = (props) => {
     if (
       password.length < 5 ||
       password != passwordConfirm ||
-      username.length < 5
+      username.length < 4
     ) {
       if (password.length < 5) {
         setPasswordMessage("password must be at least 5 characters long");
@@ -45,7 +46,10 @@ const RegisterComponent = (props) => {
     }
 
     console.log("fetching...");
-    fetch("https://ajaaspaceserver.herokuapp.com/test/register", {
+    let url = "https://ajaaspaceserver.herokuapp.com/test/register";
+    // let url = `${APIURL}/test/register`;
+
+    fetch(url, {
       method: "POST",
       body: JSON.stringify({
         user: {
@@ -68,7 +72,7 @@ const RegisterComponent = (props) => {
   return (
     <>
       <div className="form-background"></div>
-      <Form onSubmit={handleSubmit}>
+      <Form className="auth-form" onSubmit={handleSubmit}>
         <h2>Register</h2>
         <FormGroup>
           <Label htmlFor="username">Username</Label>

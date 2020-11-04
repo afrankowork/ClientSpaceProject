@@ -1,18 +1,24 @@
 import "./App.css";
 import { useEffect, useState } from "react";
-import { Navbar, NavbarBrand, Nav, NavItem, Button } from "reactstrap";
-import { Link, Route, Switch, BrowserRouter as Router } from "react-router-dom";
+// import { Navbar, NavbarBrand, Nav, NavItem, Button } from "reactstrap";
+// import { Link, Route, Switch, BrowserRouter as Router } from "react-router-dom";
 
 import NavbarComponent from "./Components/Navbar";
 import LoginComponent from "./Components/Auth/Login";
 import RegisterComponent from "./Components/Auth/Register";
 import AstroComponent from "./Components/Astro/Astro";
 import NasaPhoto from "./Components/Astro/NasaPhoto";
-import ImageUpload from './Components/Astro/ImageUpload';
-import StellarImages from './Components/Astro/StellarImages';
-import ImageGrid from './Components/Astro/ImageGrid';
-import Modal from './Components/Astro/Modal'
 
+import ImageUpload from "./Components/Astro/ImageUpload";
+import StellarImages from "./Components/Astro/StellarImages";
+import ImageGrid from "./Components/Astro/ImageGrid";
+import Modal from "./Components/Astro/Modal";
+
+import CreateFeature from "./Components/Astro/CreateFeature";
+// import Astro from "./Components/Astro/Astro";
+
+import ViewAllFeatures from "./Components/Astro/ViewAllFeatures";
+import ViewSavedFeatures from "./Components/Astro/ViewSavedFeatures";
 
 function App() {
   const [token, setToken] = useState(null);
@@ -59,13 +65,27 @@ function App() {
         toggleLogin={toggleLogin}
         token={token}
         deleteSessionToken={deleteSessionToken}
+        changeView={changeView}
       />
       {token ? (
         view === "home" ? (
-          <AstroComponent changeView={changeView} />
+          <>
+            <AstroComponent changeView={changeView} token={token} />
+            <StellarImages />
+            <ImageUpload />
+            <ImageGrid setSelectedImg={setSelectedImg} />
+            {selectedImg && (
+              <Modal
+                selectedImg={selectedImg}
+                setSelectedImg={setSelectedImg}
+              />
+            )}
+          </>
         ) : // <h1>AstroComponent</h1>
         view === "nasa-photo" ? (
           <NasaPhoto changeView={changeView} />
+        ) : view === "saved" ? (
+          <ViewSavedFeatures />
         ) : (
           // <h1>NasaPhoto</h1>
           <h1>INVALID VIEW</h1>
@@ -74,13 +94,6 @@ function App() {
         <LoginComponent updateSessionToken={updateSessionToken} />
       ) : (
         <RegisterComponent updateSessionToken={updateSessionToken} />
-      )}
-
-        <StellarImages/>
-        <ImageUpload/>
-        <ImageGrid setSelectedImg={setSelectedImg} />
-      { selectedImg && (
-        <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg} />
       )}
     </div>
   );
@@ -119,3 +132,4 @@ export default App;
 </Switch> 
 </Router>*/
 }
+

@@ -9,7 +9,7 @@
   filter: brightness(0.9);
 }
 
-Form {
+.auth-form {
   background-color: rgba(0, 0, 0, 0);
   padding: 0 1em;
   margin: 6em auto;
@@ -20,11 +20,11 @@ Form {
   /* box-shadow: 0px 10px 25px 6px rgba(0, 0, 0, 0.54); */
 }
 
-Form h2 {
+.auth-form h2 {
   text-align: center;
 }
 
-input {
+.auth-form input {
   width: 100%;
   height: 40px;
   outline: none;
@@ -33,16 +33,16 @@ input {
   /* background-image: url("https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2027&q=80"); */
   color: white;
   padding: 0 0.75em;
-  border-radius: 8px;
+  /* border-radius: 8px; */
 }
 
-Form button {
+.auth-form button {
   background-color: rgba(0, 0, 0, 0);
   border: 2px solid white;
   outline: none;
   color: white;
   font-size: larger;
-  border-radius: 8px;
+  /* border-radius: 8px; */
   padding: 0 15px 5px;
   position: relative;
   margin: 10px 0;
@@ -50,7 +50,7 @@ Form button {
   transform: translate(-50%);
 }
 
-Form button:focus {
+.auth-form button:focus {
   outline: none;
 }
 
@@ -61,6 +61,7 @@ Form button:focus {
 .nav-button {
   color: white;
   cursor: pointer;
+  margin-left: 1.5em;
 }
 
 .nav-button:hover {
@@ -252,3 +253,50 @@ label:hover{
   box-shadow: 3px 5px 7px rgba(0,0,0,0.5);
   border: 3px solid white;
 }
+
+.modal-form {
+  padding: 1em;
+}
+
+.other-data {
+  list-style: none;
+  padding-left: 0;
+}
+
+.all-features {
+  max-width: 300px;
+  min-width: 300px;
+  display: block;
+  margin: 12px;
+  border-radius: none;
+  color: white;
+}
+
+#card-title-style {
+  line-height: 2;
+  font-size: large;
+}
+
+#feature-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: auto;
+}
+
+#card-style{
+  border-radius: 0;
+  background-color: #6f6a79;
+}
+
+#card-text-style .btn{
+  border: 2px solid white;
+  border-radius: 500px;
+  background-color: #3e4670;
+  color: white;
+}
+
+#sky-title {
+  padding-left: 30px;
+}
+
