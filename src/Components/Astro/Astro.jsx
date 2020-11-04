@@ -1,8 +1,10 @@
 import React from "react";
 
-import { Button } from "reactstrap";
+import { Button } from 'reactstrap';
+
 import ViewAllFeatures from './ViewAllFeatures';
 import DeleteFeature from "./DeleteFeature";
+
 
 export default function Astro(props) {
   return (
