@@ -12,34 +12,26 @@ export default function Astro(props) {
   return (
     <>
       <div className="astro">
-        {/* <div className="welcome">
-        <h1>WELCOME</h1>
-        </div> */}
+
+        {/* MAIN CONTAINER */}
         <div className="container">
-        <div className="row">
-            <div className="col"><Weather /></div>
-            <div className="col">
-              <Button id="nasabutton" onClick={() => props.changeView("nasa-photo")}>
-                Nasa Photo of the Day
-              </Button>
-            </div>
-            <div className="col">
-              <div className="row">
-                <Button
-                  id="picturelog"
-                  onClick={() =>
-                    props.changeView("image-upload")
-                  }
-                >
-                YOUR PHOTOS
-              </Button>
-              </div>
-            </div>
-          </div>
-          <div className="row"><hr /></div>
           <div className="row">
-            <div className="col"><ViewAllFeatures token={props.token} /></div>
+
+            {/* WEATHER API MODULE */}
+              <div className="col"><Weather /></div>
+
+            {/* NASA PHOTO OF THE DAY MODULE */}
+              <div className="col"><Button id="nasabutton" onClick={() => props.changeView("nasa-photo")}>Nasa Photo of the Day</Button></div>
+
+            {/* YOUR PHOTOS MODULE */}
+              <div className="col"><div className="row"><Button id="picturelog" onClick={() => props.changeView("image-upload")}>YOUR PHOTOS</Button></div></div>
           </div>
+
+          {/* SPACER */}
+          <div className="row"><hr /></div>
+
+          {/* SKY FEATURES COMPONENT */}
+          <div className="row"><div className="col"><ViewAllFeatures token={props.token} /></div></div>
         </div>
       </div>
 
