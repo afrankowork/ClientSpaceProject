@@ -22,6 +22,11 @@ const ImageUpload = () => {
 
     return (
         <>
+        <div className="PhotoForm">
+            <div className="ImageTitle">
+            <h2>Your Pictures</h2>
+            <p>Log your stellar photos here</p>
+            </div> 
 
             <form className="imageForm">
             <label className="imageLabel" >
@@ -35,6 +40,7 @@ const ImageUpload = () => {
                { file && <ProgressBar file={file} setfile={setfile} /> }
             </div>
             </form>
+         </div>
         </>
     );
 }

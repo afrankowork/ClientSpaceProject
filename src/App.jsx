@@ -10,7 +10,6 @@ import AstroComponent from "./Components/Astro/Astro";
 import NasaPhoto from "./Components/Astro/NasaPhoto";
 
 import ImageUpload from "./Components/Astro/ImageUpload";
-import StellarImages from "./Components/Astro/StellarImages";
 import ImageGrid from "./Components/Astro/ImageGrid";
 import Modal from "./Components/Astro/Modal";
 
@@ -71,8 +70,17 @@ function App() {
         view === "home" ? (
           <>
             <AstroComponent changeView={changeView} token={token} />
-            <StellarImages />
-            <ImageUpload />
+          </>
+        ) : // <h1>AstroComponent</h1>
+        view === "nasa-photo" ? (
+          <NasaPhoto changeView={changeView} />
+        ) : view === "saved" ? (
+          <ViewSavedFeatures 
+            changeView={changeView}
+            token={token} />
+        ) : view === "image-upload" ?(
+          <>
+          <ImageUpload />
             <ImageGrid setSelectedImg={setSelectedImg} />
             {selectedImg && (
               <Modal
@@ -80,12 +88,7 @@ function App() {
                 setSelectedImg={setSelectedImg}
               />
             )}
-          </>
-        ) : // <h1>AstroComponent</h1>
-        view === "nasa-photo" ? (
-          <NasaPhoto changeView={changeView} />
-        ) : view === "saved" ? (
-          <ViewSavedFeatures token={token} />
+            </>
         ) : (
           // <h1>NasaPhoto</h1>
           <h1>INVALID VIEW</h1>
