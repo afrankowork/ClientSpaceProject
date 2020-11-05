@@ -393,7 +393,7 @@ progress-bar {
 }
 
 #saveFeatureContainer {
-  background: url(https://steamuserimages-a.akamaihd.net/ugc/169285679026579225/47F1E70BD90DB25A97F3B761B07764F7F947287E/);
+  background: url("https://steamuserimages-a.akamaihd.net/ugc/169285679026579225/47F1E70BD90DB25A97F3B761B07764F7F947287E/");
   position: absolute;
   min-height: 100vh;
   top: 0;
