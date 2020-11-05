@@ -422,3 +422,8 @@ progress-bar {
 #cardOutline .card-body{
   padding: 0px;
 }
+
+.svg-inline--fa{
+  max-width: 100px;
+  max-height: 100px;
+}
