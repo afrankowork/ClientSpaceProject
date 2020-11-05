@@ -85,8 +85,7 @@
   max-height: fit-content;
   max-width: fit-content;
   background-image: url("https://images.unsplash.com/photo-1520034475321-cbe63696469a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80");
-  height: fit-content;
-  
+  height: 100%;
 }
 
 .nasa-photo img {
@@ -191,6 +190,11 @@
 /* base styles & title */
 .PhotoForm {
   background: #3e4670;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+  padding-top: 50px;
 }
 
 .ImageTitle h2 {
@@ -259,6 +263,7 @@ progress-bar {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 40px;
+  margin-top: 305px;
 }
 .img-wrap {
   overflow: hidden;
@@ -381,18 +386,11 @@ progress-bar {
   color: white;
 }
 
-#saveFeatureContainer {
-  display: flex;
-  flex-direction: row;
-  margin: 20px;
-}
-
 #viewHeader {
   text-align: center;
   color: white;
   padding-top: 20px;
 }
-
 
 #saveFeatureContainer {
   background: url(https://steamuserimages-a.akamaihd.net/ugc/169285679026579225/47F1E70BD90DB25A97F3B761B07764F7F947287E/);
@@ -402,8 +400,10 @@ progress-bar {
   width: 100%;
   left: 0;
   margin: 0;
-  padding-top: 150px ;
+  padding: 150px 50px 0;
   z-index: -1;
+  display: flex;
+  flex-direction: row;
 }
 
 #viewAllHeader {
@@ -414,4 +414,3 @@ progress-bar {
   font-weight: bold;
   font-size: 25px;
 }
-
