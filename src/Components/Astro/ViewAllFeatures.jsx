@@ -26,12 +26,12 @@ const ViewAllFeatures = (props) => {
 
      var elevation = 50;
      var now = new Date();
-     var year = now.getUTCFullYear();
-     var month = pad(now.getUTCMonth() + 1);
-     var day = pad(now.getUTCDate());
-     var hrs = pad(now.getUTCHours());
-     var min = pad(now.getUTCMinutes());
-     var sec = pad(now.getUTCSeconds());
+     var year = now.getFullYear();
+     var month = pad(now.getMonth() + 1);
+     var day = pad(now.getDate());
+     var hrs = pad(now.getHours());
+     var min = pad(now.getMinutes());
+     var sec = pad(now.getSeconds());
      var currentTime = `${hrs}:${min}:${sec}`;
 
      function pad(num) {
@@ -55,8 +55,9 @@ const ViewAllFeatures = (props) => {
                })
                }).then( (res) => res.json())
                .then((logData) => {
-                    setFeatureList(logData.data.table.rows)
-                    console.log(logData.data.table.rows);
+                    console.log(logData);
+                    logData.data.table ? setFeatureList(logData.data.table.rows)
+                    : console.log("No data found");
                })
      }
      }, [lat, lon]);
