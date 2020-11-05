@@ -1,47 +1,32 @@
-
-import React, { useState, useEffect } from 'react';
-import {Button,
-     Card,
-     CardBody,
-     CardTitle,
-     CardText,
-} from 'reactstrap';
-import CreateFeature from './CreateFeature';
+import React, { useState, useEffect } from "react";
+import { Button, Card, CardBody, CardTitle, CardText } from "reactstrap";
+import CreateFeature from "./CreateFeature";
 
 const ViewAllFeatures = (props) => {
-     
-     const aut = 'OTFjZTQzN2YtNTZkMC00NWNjLTkwYTItZWVkMWZhYzI2MjQzOjNjYjU4NTIxNjQ1MmI2ZWJhZmMxN2JkYmY0YjE0OWNhMDQ3YTVlMzU5ZGQ3ZGQyOGQ4ZWY3OTZhYmI5MTEzZWZhOWI4ZjljNGFhMWM4NmE0YjFkNDAzZDc0MGI3Mjc5OTU2ODc1ZDE3MjZiNjA2MzEyODI2YjFjN2JmNzAxNjc2ZTdlMDU3M2ZjNGRiYTllODU0YzlkY2EwYzQ4YWM1Y2MxYTI5ZmM2YWM1OGJiYjZmM2EyNWI4ZGUxYjFjNzRmYTRhNzRhOTYxODQ2NzdiYmYwMzczOTQ4ODU5MDU0ODBl';
-  
-     const [featureList, setFeatureList] = useState([]);
-     const [lat, setLatitude] = useState("");
-     const [lon, setLongitude] = useState("");
-     const [adjustedTime, setTime] = useState("");
+  const aut =
+    "OTFjZTQzN2YtNTZkMC00NWNjLTkwYTItZWVkMWZhYzI2MjQzOjNjYjU4NTIxNjQ1MmI2ZWJhZmMxN2JkYmY0YjE0OWNhMDQ3YTVlMzU5ZGQ3ZGQyOGQ4ZWY3OTZhYmI5MTEzZWZhOWI4ZjljNGFhMWM4NmE0YjFkNDAzZDc0MGI3Mjc5OTU2ODc1ZDE3MjZiNjA2MzEyODI2YjFjN2JmNzAxNjc2ZTdlMDU3M2ZjNGRiYTllODU0YzlkY2EwYzQ4YWM1Y2MxYTI5ZmM2YWM1OGJiYjZmM2EyNWI4ZGUxYjFjNzRmYTRhNzRhOTYxODQ2NzdiYmYwMzczOTQ4ODU5MDU0ODBl";
 
-     useEffect(() => {
+  const [featureList, setFeatureList] = useState([]);
+  const [lat, setLatitude] = useState("");
+  const [lon, setLongitude] = useState("");
+  const [adjustedTime, setTime] = useState("");
 
-          const showPosition = (position) => {
-               setLatitude(position.coords.latitude);
-               setLongitude(position.coords.longitude);
-          };
+  useEffect(() => {
+    const showPosition = (position) => {
+      setLatitude(position.coords.latitude);
+      setLongitude(position.coords.longitude);
+    };
 
-     var elevation = 50;
-     var now = new Date();
-     var year = now.getFullYear();
-     var month = pad(now.getMonth() + 1);
-     var day = pad(now.getDate());
-     var hrs = pad(now.getHours());
-     var min = pad(now.getMinutes());
-     var sec = pad(now.getSeconds());
-     var currentTime = `${hrs}:${min}:${sec}`;
+    var elevation = 50;
+    var now = new Date();
+    var year = now.getUTCFullYear();
+    var month = pad(now.getUTCMonth() + 1);
+    var day = pad(now.getUTCDate());
+    var hrs = pad(now.getUTCHours());
+    var min = pad(now.getUTCMinutes());
+    var sec = pad(now.getUTCSeconds());
+    var currentTime = `${hrs}:${min}:${sec}`;
 
-     function pad(num) {
-          if (num < 10) {
-          let n = num.toString();
-          return n.padStart(2, "0");
-          } else {
-          return num;
-          }
-     }
 
      if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(showPosition);
@@ -62,67 +47,80 @@ const ViewAllFeatures = (props) => {
      }
      }, [lat, lon]);
 
-      
+    function pad(num) {
+      if (num < 10) {
+        let n = num.toString();
+        return n.padStart(2, "0");
+      } else {
+        return num;
+      }
+    }
 
-const inSky = (num) => {
+  const inSky = (num) => {
     return num > 0 ? "yes" : "no";
   };
 
-     const featureRetriever = () => {
-          return featureList.map((feature, index) => {
-               return(
-                    <div class="all-features">
-                         <Card id="card-style">
-                              <CardBody>
-                                   <CardTitle id="card-title-style">{feature.entry.name}{adjustedTime}</CardTitle>
-                                   <hr/>
-                                   <CardText id="card-text-style">
-                                        <ul>
-                                        <li>
-                                             Declination: {feature.cells[0].position.equatorial.declination.degrees}
-                                        </li>
-                                        <li>
-                                             Right Ascension: {feature.cells[0].position.equatorial.rightAscension.hours}
-                                        </li>
-                                        <li>
-                                             Currently in sky: {inSky(feature.cells[0].position.horizonal.altitude.degrees)}
-                                        </li>
-                                        </ul>
-                                        <CreateFeature
-                                             declination={feature.cells[0].position.equatorial.declination.degrees}
-                                             ascension={feature.cells[0].position.equatorial.rightAscension.hours}
-                                             distance={feature.cells[0].distance.fromEarth.km}
-                                             name={feature.entry.name}
-                                             azi={feature.cells[0].position.horizonal.azimuth.degrees}
-                                             alt={feature.cells[0].position.horizonal.altitude.degrees}
-                                             token={props.token}
-                                        />
-                                   </CardText>
-                              </CardBody>
-                         </Card>
-                    </div>
-               )
-          })
-     }
+  const featureRetriever = () => {
+    return featureList.map((feature, index) => {
+      return (
+        <div class="all-features">
+          <Card id="card-style">
+            <CardBody>
+              <CardTitle id="card-title-style">
+                {feature.entry.name}
+                {adjustedTime}
+              </CardTitle>
+              <hr />
+              <CardText id="card-text-style">
+                <ul>
+                  <li>
+                    Declination:{" "}
+                    {feature.cells[0].position.equatorial.declination.degrees}
+                  </li>
+                  <li>
+                    Right Ascension:{" "}
+                    {feature.cells[0].position.equatorial.rightAscension.hours}
+                  </li>
+                  <li>
+                    Currently in sky:{" "}
+                    {inSky(
+                      feature.cells[0].position.horizonal.altitude.degrees
+                    )}
+                  </li>
+                </ul>
+                <CreateFeature
+                  declination={
+                    feature.cells[0].position.equatorial.declination.degrees
+                  }
+                  ascension={
+                    feature.cells[0].position.equatorial.rightAscension.hours
+                  }
+                  distance={feature.cells[0].distance.fromEarth.km}
+                  name={feature.entry.name}
+                  azi={feature.cells[0].position.horizonal.azimuth.degrees}
+                  alt={feature.cells[0].position.horizonal.altitude.degrees}
+                  token={props.token}
+                />
+              </CardText>
+            </CardBody>
+          </Card>
+        </div>
+      );
+    });
+  };
 
-     return(
-          <div>
-               
-               <div id="sky-title">
-                    <h1 id="viewAllHeader">Sky Features</h1>
-               </div>
-               <div id="feature-box">
-                    <br />
-                    {
-                         featureRetriever()
-                    }
-               </div>
-          </div>
-     );
-}
-
-  
-  
+  return (
+    <div>
+      <div id="sky-title">
+        <h1 id="viewAllHeader">Sky Features</h1>
+      </div>
+      <div id="feature-box">
+        <br />
+        {featureRetriever()}
+      </div>
+    </div>
+  );
+};
 
 export default ViewAllFeatures;
 
