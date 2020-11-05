@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button, Col} from 'reactstrap';
 
 let icon;
-let icon_url;
+
 const Weather = (props) => {
     
     const [icon_url, setIcon] = useState('');
