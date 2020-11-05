@@ -14,7 +14,7 @@ const NavbarComponent = (props) => {
   // const [isOpen, setIsOpen] = useState(false);
   // const toggle = () => setIsOpen(!isOpen);
   return (
-    <Navbar color={props.token ? "dark" : null} dark expand="md">
+    <Navbar dark expand="md">
       <NavbarBrand href="/">AJAA</NavbarBrand>
       {/* <NavbarToggler onClick={toggle} /> */}
       {/* <Collapse isOpen={isOpen} navbar> */}
