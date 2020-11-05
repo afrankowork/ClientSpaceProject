@@ -10,7 +10,6 @@ import AstroComponent from "./Components/Astro/Astro";
 import NasaPhoto from "./Components/Astro/NasaPhoto";
 
 import ImageUpload from "./Components/Astro/ImageUpload";
-import StellarImages from "./Components/Astro/StellarImages";
 import ImageGrid from "./Components/Astro/ImageGrid";
 import Modal from "./Components/Astro/Modal";
 
@@ -71,7 +70,6 @@ function App() {
         view === "home" ? (
           <>
             <AstroComponent changeView={changeView} token={token} />
-            <StellarImages />
           </>
         ) : // <h1>AstroComponent</h1>
         view === "nasa-photo" ? (
