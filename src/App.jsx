@@ -72,7 +72,17 @@ function App() {
           <>
             <AstroComponent changeView={changeView} token={token} />
             <StellarImages />
-            <ImageUpload />
+          </>
+        ) : // <h1>AstroComponent</h1>
+        view === "nasa-photo" ? (
+          <NasaPhoto changeView={changeView} />
+        ) : view === "saved" ? (
+          <ViewSavedFeatures 
+            changeView={changeView}
+            token={token} />
+        ) : view === "image-upload" ?(
+          <>
+          <ImageUpload />
             <ImageGrid setSelectedImg={setSelectedImg} />
             {selectedImg && (
               <Modal
@@ -80,12 +90,7 @@ function App() {
                 setSelectedImg={setSelectedImg}
               />
             )}
-          </>
-        ) : // <h1>AstroComponent</h1>
-        view === "nasa-photo" ? (
-          <NasaPhoto changeView={changeView} />
-        ) : view === "saved" ? (
-          <ViewSavedFeatures token={token} />
+            </>
         ) : (
           // <h1>NasaPhoto</h1>
           <h1>INVALID VIEW</h1>
