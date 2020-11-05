@@ -168,8 +168,7 @@
 #nasabutton {
   max-width: 300px;
   min-width: 300px;
-  max-height: 600px;
-  min-height: 600px;
+  height: auto;
   font-size: 20px;
   background: #3e4670;
   color: #fff;
@@ -353,8 +352,9 @@ progress-bar {
 }
 
 /* Personal Buttons */
-#picturelog {
-  height: 600px;
+
+#picturelog{
+  height: auto;
   width: 300px;
   background-color: #3e4670;
   border-radius: 0px;
@@ -371,18 +371,16 @@ progress-bar {
 }
 
 #weatherImg {
-  height: 220px;
-  width: 220px;
+  height: 100px;
+  width: 100px;  
 }
 
 #cardOutline {
-  padding-top: 70px;
+  padding: 20px;
   align-items: center;
-  padding-left: 3px;
   text-align: center;
   font-family: Verdana, Geneva, sans-serif;
   background-color: #3e4670;
-  height: 600px;
   color: white;
 }
 
@@ -419,4 +417,8 @@ progress-bar {
   color: white;
   width: 100%;
   text-align: center;
+}
+
+#cardOutline .card-body{
+  padding: 0px;
 }

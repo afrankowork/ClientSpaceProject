@@ -27,6 +27,26 @@ const ViewAllFeatures = (props) => {
     var sec = pad(now.getUTCSeconds());
     var currentTime = `${hrs}:${min}:${sec}`;
 
+
+     if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(showPosition);
+          let url = `https://api.astronomyapi.com/api/v2/bodies/positions?latitude=${lat}&longitude=${lon}&elevation=${elevation}&from_date=${year}-${month}-${day}&to_date=${year}-${month}-${day}&time=${currentTime}`;
+          console.log(url);
+               fetch(url, {
+               method: 'GET',
+               headers: new Headers ({
+                    'Content-Type': 'application/json',
+                    'Authorization': `Basic ${aut}`
+               })
+               }).then( (res) => res.json())
+               .then((logData) => {
+                    console.log(logData);
+                    logData.data.table ? setFeatureList(logData.data.table.rows)
+                    : console.log("No data found");
+               })
+     }
+     }, [lat, lon]);
+
     function pad(num) {
       if (num < 10) {
         let n = num.toString();
@@ -35,27 +55,6 @@ const ViewAllFeatures = (props) => {
         return num;
       }
     }
-
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(showPosition);
-      let url = `https://api.astronomyapi.com/api/v2/bodies/positions?latitude=${lat}&longitude=${lon}&elevation=${elevation}&from_date=${year}-${month}-${day}&to_date=${year}-${month}-${day}&time=${currentTime}`;
-      console.log(url);
-      fetch(url, {
-        method: "GET",
-        headers: new Headers({
-          "Content-Type": "application/json",
-          Authorization: `Basic ${aut}`,
-        }),
-      })
-        .then((res) => res.json())
-        .then((logData) => {
-          if (logData.data) {
-            setFeatureList(logData.data.table.rows);
-            console.log(logData.data.table.rows);
-          }
-        });
-    }
-  }, [lat, lon]);
 
   const inSky = (num) => {
     return num > 0 ? "yes" : "no";
