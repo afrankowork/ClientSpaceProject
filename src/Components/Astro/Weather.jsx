@@ -14,7 +14,7 @@ const Weather = (props) => {
     
 
 
-    let url = 'https://api.openweathermap.org/data/2.5/onecall?lat=33.441792&lon=-94.037689&exclude=hourly,daily&appid=70d415361464c75295b5f22c9849e8c3&units=imperial'
+    let url = 'https://api.openweathermap.org/data/2.5/onecall?lat=39.7684&lon=-86.1581&exclude=hourly,daily&appid=70d415361464c75295b5f22c9849e8c3&units=imperial'
     
     fetch(url).then((res) => res.json())
     .then((data) => formatWeather(data));
@@ -38,18 +38,18 @@ const Weather = (props) => {
 
     return (
         
-            <>
             
+            <div id="cardContainer">
 
-                <Card >
+                <Card id="cardOutline">
                     <CardText>Current Weather: </CardText>
                     <CardText>
                         {clouds <50 ? <p>Low Cloud Coverage makes for great pictures!</p> : <p>Not ideal circumstances for such a professional as yourself</p>}
                     </CardText>
-                   <CardImg  src={icon_url} />
+                   <CardImg  id="weatherImg" src={icon_url} />
                    <CardBody>
                        <CardTitle>
-                           Sky Title: {descrip}
+                           Status: {descrip}
                        </CardTitle>
                        <CardSubtitle>
                             Feels Like: {subtitle}°
@@ -57,12 +57,12 @@ const Weather = (props) => {
                         <CardText>
                             Visibility Distance(m): {vis} 
                             <br/>
-                            Cloud Percentage (1-100): {clouds}
+                            Cloud Percentage: {clouds}%
                         </CardText>
                    </CardBody>
                    </Card>
 
-            </>
+            </div>
         
     )
 }
