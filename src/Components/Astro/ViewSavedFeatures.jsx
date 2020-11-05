@@ -29,9 +29,11 @@ const ViewSavedFeatures = (props) => {
 
   return features.length > 0 ? (
     <>
-      <h3>Your Features</h3>
+      <h3 id='viewHeader'>Your Features</h3>
+      <div id='saveFeatureContainer'>
       {features.map((feature) => {
         return (
+         
           <div className="all-features">
             <Card id="card-style">
               <CardBody>
@@ -62,8 +64,10 @@ const ViewSavedFeatures = (props) => {
               </CardBody>
             </Card>
           </div>
+          
         );
       })}
+      </div>
     </>
   ) : (
     <h1>No features.</h1>
