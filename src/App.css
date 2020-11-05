@@ -76,10 +76,14 @@
 
 /*Photo of the Day*/
 .nasa-photo {
+  position: absolute;
+  top: 0;
+  z-index: -1;
   display: flex;
-  padding: 40px;
+  padding: 80px 40px 0;
   margin: 0;
-  max-height: 100%;
+  max-height: fit-content;
+  max-width: fit-content;
   background-image: url("https://images.unsplash.com/photo-1520034475321-cbe63696469a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80");
   height: 100%;
 }
@@ -93,7 +97,7 @@
 }
 
 .nasa-photo h1 {
-  margin-top: 0;
+  margin-top: 70px;
   margin-bottom: 0;
   color: white;
 }
@@ -129,6 +133,22 @@
   height: 100%;
 }
 
+.astro {
+  background: url(https://i.redd.it/imkv74m4q5g41.png);
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: fit-content;
+  z-index: -1;
+}
+
+/* .astro .welcome {
+  text-align: center;
+  color: white; 
+  font-family: monospace;
+  font-size: 90%;
+} */
+
 .astro .container {
   padding: 0px;
   padding-top: 70px;
@@ -140,9 +160,9 @@
   padding: 20px;
   display: flex;
   justify-content: center;
-  -webkit-box-shadow: 4px 11px 18px 0px rgba(51,51,51,1);
--moz-box-shadow: 4px 11px 18px 0px rgba(51,51,51,1);
-box-shadow: 4px 11px 18px 0px rgba(51,51,51,1);
+  -webkit-box-shadow: 4px 11px 18px 0px rgba(51, 51, 51, 1);
+  -moz-box-shadow: 4px 11px 18px 0px rgba(51, 51, 51, 1);
+  box-shadow: 4px 11px 18px 0px rgba(51, 51, 51, 1);
 }
 
 #nasabutton {
@@ -151,13 +171,12 @@ box-shadow: 4px 11px 18px 0px rgba(51,51,51,1);
   max-height: 600px;
   min-height: 600px;
   font-size: 20px;
-  background:#3e4670;
+  background: #3e4670;
   color: #fff;
   border-radius: 0px;
   text-decoration: none;
   transition: 0.3s ease all;
   text-transform: uppercase;
-  
 }
 
 #nasabutton:hover {
@@ -166,43 +185,44 @@ box-shadow: 4px 11px 18px 0px rgba(51,51,51,1);
   text-emphasis-color: white;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap');
-
-
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap");
 
 /* base styles & title */
-.PhotoForm{
+.PhotoForm {
   background: #3e4670;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+  padding-top: 50px;
 }
 
-
-.ImageTitle h2{
+.ImageTitle h2 {
   color: white;
   font-size: 5rem;
   letter-spacing: 1px;
   font-weight: normal;
   text-align: center;
 }
- .ImageTitle p{
+.ImageTitle p {
   text-align: center;
   color: white;
 }
 
-
 /* upload form styles */
-.imageForm{
+.imageForm {
   margin: 30px auto 10px;
   text-align: center;
   color: white;
 }
 
-.imageLabel input{
+.imageLabel input {
   height: 0;
   width: 0;
   opacity: 0;
 }
 
-#imageLabel{
+#imageLabel {
   display: block;
   width: 30px;
   height: 30px;
@@ -216,37 +236,36 @@ box-shadow: 4px 11px 18px 0px rgba(51,51,51,1);
   font-size: 24px;
 }
 
-
-#imageLabel:hover{
+#imageLabel:hover {
   background: navy;
 
   color: white;
 }
 
-.output{
+.output {
   height: 60px;
   font-size: 0.8rem;
 }
-.error{
+.error {
   color: red;
 }
 
 /* progress bar styles */
-.progress-bar{
+progress-bar {
   height: 5px;
   background: white;
   margin-top: 20px;
 }
 
 /* image grid styles */
-.img-grid{
+.img-grid {
   margin: 20px auto;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 40px;
-
+  margin-top: 305px;
 }
-.img-wrap{
+.img-wrap {
   overflow: hidden;
   height: 0;
   padding: 50% 0;
@@ -254,7 +273,7 @@ box-shadow: 4px 11px 18px 0px rgba(51,51,51,1);
   position: relative;
   opacity: 0.8;
 }
-.img-wrap img{
+.img-wrap img {
   min-width: 100%;
   min-height: 100%;
   max-width: 150%;
@@ -264,20 +283,20 @@ box-shadow: 4px 11px 18px 0px rgba(51,51,51,1);
 }
 
 /* modal styles */
-.backdrop{
+.backdrop {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
 }
-.backdrop img{
+.backdrop img {
   display: block;
   max-width: 60%;
   max-height: 80%;
   margin: 60px auto;
-  box-shadow: 3px 5px 7px rgba(0,0,0,0.5);
+  box-shadow: 3px 5px 7px rgba(0, 0, 0, 0.5);
   border: 3px solid white;
 }
 
@@ -311,7 +330,7 @@ box-shadow: 4px 11px 18px 0px rgba(51,51,51,1);
   margin: auto;
 }
 
-#card-style{
+#card-style {
   border-radius: 0;
   background-color: white;
 }
@@ -321,7 +340,7 @@ box-shadow: 4px 11px 18px 0px rgba(51,51,51,1);
   padding: 0;
 }
 
-#card-text-style .btn{
+#card-text-style .btn {
   border: 2px solid white;
   border-radius: 0;
   background-color: #3e4670;
@@ -334,43 +353,64 @@ box-shadow: 4px 11px 18px 0px rgba(51,51,51,1);
 }
 
 /* Personal Buttons */
-#picturelog{
-  border: 2px solid white;
-  height: 50px;
-  width: 250px;
+#picturelog {
+  height: 600px;
+  width: 300px;
   background-color: #3e4670;
   border-radius: 0px;
+  font-size: 20px;
+  text-decoration: none;
+  transition: 0.3s ease all;
+  text-transform: uppercase;
+}
+
+#picturelog:hover {
+  border-radius: 50%;
+  background: #3e4670;
+  text-emphasis-color: white;
 }
 
 #weatherImg {
   height: 220px;
   width: 220px;
-  
-  
 }
 
 #cardOutline {
-  padding-top: 30px;
+  padding-top: 70px;
   align-items: center;
   padding-left: 3px;
   text-align: center;
   font-family: Verdana, Geneva, sans-serif;
   background-color: #3e4670;
+  height: 600px;
   color: white;
-}
-
-#saveFeatureContainer {
-  display: flex;
-  flex-direction: row;
-  margin: 20px;
-
 }
 
 #viewHeader {
   text-align: center;
+  color: white;
   padding-top: 20px;
+}
+
+#saveFeatureContainer {
+  background: url(https://steamuserimages-a.akamaihd.net/ugc/169285679026579225/47F1E70BD90DB25A97F3B761B07764F7F947287E/);
+  position: absolute;
+  min-height: 100vh;
+  top: 0;
+  width: 100%;
+  left: 0;
+  margin: 0;
+  padding: 150px 50px 0;
+  z-index: -1;
+  display: flex;
+  flex-direction: row;
 }
 
 #viewAllHeader {
   text-align: center;
+}
+
+.add-image {
+  font-weight: bold;
+  font-size: 25px;
 }
