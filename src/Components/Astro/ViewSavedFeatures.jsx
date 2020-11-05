@@ -26,7 +26,7 @@ const ViewSavedFeatures = (props) => {
   return features.length > 0 ? (
     <>
       <h1 id="viewHeader">Your Features</h1>
-      <div id="saveFeatureContainer">
+      <div className="saveFeatureContainer">
         {features.map((feature) => {
           return (
             <div className="all-features">
@@ -69,7 +69,9 @@ const ViewSavedFeatures = (props) => {
       </div>
     </>
   ) : (
-    <h1>No features.</h1>
+    <div className="saveFeatureContainer">
+      <h1 className="no-features">nothing saved</h1>
+    </div>
   );
 };
 
