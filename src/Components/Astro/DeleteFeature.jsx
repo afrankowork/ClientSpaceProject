@@ -15,7 +15,7 @@ const DeleteFeature = (props) => {
       }),
     })
       .then((res) => {
-        console.log(res, "fetching updated results...");
+        props.getFeatures();
       })
       .catch(console.log);
   };

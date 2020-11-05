@@ -40,7 +40,7 @@ const Weather = (props) => {
         
             <>
             
-                <Col sm="2">
+
                 <Card >
                     <CardText>Current Weather: </CardText>
                     <CardText>
@@ -61,7 +61,7 @@ const Weather = (props) => {
                         </CardText>
                    </CardBody>
                    </Card>
-                  </Col> 
+
             </>
         
     )
