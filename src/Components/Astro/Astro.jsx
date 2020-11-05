@@ -12,6 +12,9 @@ export default function Astro(props) {
   return (
     <>
       <div className="astro">
+        {/* <div className="welcome">
+        <h1>WELCOME</h1>
+        </div> */}
         <div className="container">
         <div className="row">
             <div className="col"><Weather /></div>
@@ -28,7 +31,7 @@ export default function Astro(props) {
                     props.changeView("image-upload")
                   }
                 >
-                Your Photos
+                YOUR PHOTOS
               </Button>
               </div>
             </div>
