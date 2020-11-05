@@ -20,7 +20,18 @@ export default function Astro(props) {
                 Nasa Photo of the Day
               </Button>
             </div>
-            <div className="col">Photo Log</div>
+            <div className="col">
+              <div className="row">
+                <Button
+                  id="picturelog"
+                  onClick={() =>
+                    props.changeView("image-upload")
+                  }
+                >
+                Your Photos
+              </Button>
+              </div>
+            </div>
           </div>
           <div className="row"><hr /></div>
           <div className="row">
@@ -30,14 +41,7 @@ export default function Astro(props) {
       </div>
 
       <div>
-        <Button
-          id="picturelog"
-          onClick={() =>
-            props.changeView("output", "imageTitle", "progress-bar")
-          }
-        >
-          Your Photos
-        </Button>
+
       </div>
     </>
   );
