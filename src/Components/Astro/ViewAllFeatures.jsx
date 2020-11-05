@@ -105,9 +105,10 @@ const inSky = (num) => {
      }
 
      return(
-          <>
+          <div>
+               
                <div id="sky-title">
-                    <h1>Sky Features</h1>
+                    <h1 id="viewAllHeader">Sky Features</h1>
                </div>
                <div id="feature-box">
                     <br />
@@ -115,7 +116,7 @@ const inSky = (num) => {
                          featureRetriever()
                     }
                </div>
-          </>
+          </div>
      );
 }
 
